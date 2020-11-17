@@ -1,0 +1,6 @@
+rfpbda2.__db_cache_size=289406976
+rfpbda2.__oracle_base='/u01/app/oracle'#ORACLE_BASE set from environment
+rfpbda2.__shared_pool_size=167772160
+*.control_files='/u01/app/oracle/oradata/RFPBDA2/control01.ctl','/u02/app/oracle/oradata/RFPBDA2/control02.ctl','/u03/app/oracle/oradata/RFPBDA2/control03.ctl'
+*.db_name='rfpbda2'
+*.memory_target=768M

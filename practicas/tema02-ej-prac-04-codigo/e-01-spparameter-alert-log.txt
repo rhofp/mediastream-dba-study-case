@@ -1,0 +1,1924 @@
+2020-10-15T17:56:03.171834-05:00
+Starting ORACLE instance (normal) (OS id: 7661)
+2020-10-15T17:56:03.187824-05:00
+**********************************************************************
+2020-10-15T17:56:03.187900-05:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2020-10-15T17:56:03.188051-05:00
+ Per process system memlock (soft) limit = 64K
+2020-10-15T17:56:03.188119-05:00
+ Expected per process system memlock (soft) limit to lock
+ SHARED GLOBAL AREA (SGA) into memory: 768M
+2020-10-15T17:56:03.188255-05:00
+ Available system pagesizes:
+  4K, 2048K 
+2020-10-15T17:56:03.188383-05:00
+ Supported system pagesize(s):
+2020-10-15T17:56:03.188449-05:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2020-10-15T17:56:03.188517-05:00
+        4K       Configured          196612          196612        NONE
+2020-10-15T17:56:03.188583-05:00
+ Reason for not supporting certain system pagesizes: 
+2020-10-15T17:56:03.188658-05:00
+  2048K - Dynamic allocate and free memory regions
+2020-10-15T17:56:03.188740-05:00
+RECOMMENDATION:
+2020-10-15T17:56:03.188809-05:00
+ 1. Increase per process memlock (soft) limit to at least 768MB
+ to lock 100% of SHARED GLOBAL AREA (SGA) pages into physical memory
+2020-10-15T17:56:03.188937-05:00
+**********************************************************************
+2020-10-15T17:56:06.499293-05:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2020-10-15T17:56:06.525205-05:00
+Initial number of CPU is 4
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Shared memory segment for instance monitoring created
+Capability Type : Network 
+capabilities requested : 1 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as /u01/app/oracle/product/18.0.0/dbhome_1/dbs/arch
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =35
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 18c Enterprise Edition Release 18.0.0.0.0 - Production
+Version 18.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/18.0.0/dbhome_1
+System name:	Linux
+Node name:	pc-rfp.fi.unam
+Release:	3.10.0-957.el7.x86_64
+Version:	#1 SMP Thu Nov 1 00:13:43 PDT 2018
+Machine:	x86_64
+Using parameter settings in server-side pfile /u01/app/oracle/product/18.0.0/dbhome_1/dbs/initrfpbda2.ora
+System parameters with non-default values:
+  memory_target            = 768M
+  control_files            = "/u01/app/oracle/oradata/RFPBDA2/control01.ctl"
+  control_files            = "/u02/app/oracle/oradata/RFPBDA2/control02.ctl"
+  control_files            = "/u03/app/oracle/oradata/RFPBDA2/control03.ctl"
+  db_name                  = "rfpbda2"
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+2020-10-15T17:56:06.793021-05:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+2020-10-15T17:56:07.842702-05:00
+Starting background process PMON
+2020-10-15T17:56:07.856999-05:00
+PMON started with pid=2, OS id=7674 
+Starting background process CLMN
+2020-10-15T17:56:07.872582-05:00
+CLMN started with pid=3, OS id=7676 
+Starting background process PSP0
+2020-10-15T17:56:07.887989-05:00
+PSP0 started with pid=4, OS id=7678 
+Starting background process VKTM
+2020-10-15T17:56:08.906855-05:00
+Starting background process GEN0
+2020-10-15T17:56:08.906907-05:00
+VKTM started with pid=5, OS id=7681 at elevated (RT) priority
+2020-10-15T17:56:08.908850-05:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+2020-10-15T17:56:08.924140-05:00
+GEN0 started with pid=6, OS id=7685 
+Starting background process MMAN
+2020-10-15T17:56:08.938598-05:00
+MMAN started with pid=7, OS id=7687 
+Starting background process GEN1
+2020-10-15T17:56:08.979897-05:00
+GEN1 started with pid=9, OS id=7691_7692 
+Starting background process DIAG
+2020-10-15T17:56:08.994966-05:00
+DIAG started with pid=11, OS id=7694 
+Starting background process OFSD
+2020-10-15T17:56:09.015684-05:00
+OFSD started with pid=12, OS id=7696_7697 
+Starting background process DBRM
+2020-10-15T17:56:09.016614-05:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+2020-10-15T17:56:09.031081-05:00
+DBRM started with pid=14, OS id=7699 
+Starting background process VKRM
+2020-10-15T17:56:09.046341-05:00
+VKRM started with pid=15, OS id=7701 
+Starting background process SVCB
+2020-10-15T17:56:09.062176-05:00
+SVCB started with pid=16, OS id=7703 
+Starting background process PMAN
+2020-10-15T17:56:09.078255-05:00
+PMAN started with pid=17, OS id=7705 
+Starting background process DIA0
+2020-10-15T17:56:09.093600-05:00
+DIA0 started with pid=18, OS id=7707 
+Starting background process DBW0
+2020-10-15T17:56:09.113370-05:00
+DBW0 started with pid=8, OS id=7709 
+Starting background process LGWR
+2020-10-15T17:56:09.128347-05:00
+LGWR started with pid=19, OS id=7711 
+Starting background process CKPT
+2020-10-15T17:56:09.143228-05:00
+CKPT started with pid=20, OS id=7713 
+Starting background process SMON
+2020-10-15T17:56:09.158857-05:00
+LGWR slave LG00 created with pid=21, OS pid=7715
+2020-10-15T17:56:09.173422-05:00
+SMON started with pid=22, OS id=7717 
+Starting background process SMCO
+LGWR slave LG01 created with pid=23, OS pid=7719
+2020-10-15T17:56:09.203750-05:00
+SMCO started with pid=24, OS id=7721 
+Starting background process RECO
+2020-10-15T17:56:09.218530-05:00
+RECO started with pid=25, OS id=7723 
+Starting background process LREG
+2020-10-15T17:56:09.248702-05:00
+LREG started with pid=27, OS id=7727 
+Starting background process PXMN
+2020-10-15T17:56:09.279577-05:00
+PXMN started with pid=29, OS id=7731 
+Starting background process FENC
+2020-10-15T17:56:09.294091-05:00
+FENC started with pid=30, OS id=7733 
+Starting background process MMON
+Starting background process MMNL
+2020-10-15T17:56:09.312763-05:00
+MMON started with pid=31, OS id=7735 
+2020-10-15T17:56:09.328364-05:00
+MMNL started with pid=30, OS id=7737 
+Starting background process TMON
+2020-10-15T17:56:09.342948-05:00
+TMON started with pid=32, OS id=7739 
+ORACLE_BASE from environment = /u01/app/oracle
+2020-10-15T17:56:12.033389-05:00
+Using default pga_aggregate_limit of 2048 MB
+2020-10-15T17:56:34.144360-05:00
+The spfile name is ?=/dbs/spfile@.ora
+2020-10-15T18:12:10.456411-05:00
+Process termination requested for pid 7681 [source = unknown], [info = 1434302940] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.457220-05:00
+Process termination requested for pid 7721 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.458633-05:00
+Process termination requested for pid 7674 [source = unknown], [info = 923514777] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.460454-05:00
+Process termination requested for pid 7676 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.460910-05:00
+Process termination requested for pid 7694 [source = unknown], [info = -1465506339] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.462399-05:00
+Process termination requested for pid 7685 [source = unknown], [info = 664060112] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.462460-05:00
+Process termination requested for pid 7696_7696 [source = unknown], [info = -1229561520] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.462705-05:00
+Process termination requested for pid 7699 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.463108-05:00
+Process termination requested for pid 7705 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.464519-05:00
+Process termination requested for pid 7687 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.464843-05:00
+Process termination requested for pid 7707 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.466988-05:00
+Process termination requested for pid 7709 [source = unknown], [info = 887216544] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.466994-05:00
+Process termination requested for pid 7701 [source = unknown], [info = 40] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.468969-05:00
+Process termination requested for pid 7713 [source = unknown], [info = 1525007464] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.468973-05:00
+Process termination requested for pid 7703 [source = unknown], [info = 303139794] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.470945-05:00
+Process termination requested for pid 7735 [source = unknown], [info = 1611702128] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.470965-05:00
+Process termination requested for pid 7715 [source = unknown], [info = 367977015] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.472790-05:00
+Process termination requested for pid 7717 [source = unknown], [info = 1747651944] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.474385-05:00
+Process termination requested for pid 7678 [source = unknown], [info = 299680320] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.474523-05:00
+Process termination requested for pid 7719 [source = unknown], [info = 791632695] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.475572-05:00
+Process termination requested for pid 7727 [source = unknown], [info = 54580641] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.476114-05:00
+Process termination requested for pid 7723 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.476144-05:00
+Process termination requested for pid 7691_7691 [source = unknown], [info = 149741904] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.476354-05:00
+Process termination requested for pid 7711 [source = unknown], [info = 1752660952] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.477925-05:00
+Process termination requested for pid 7729 [source = unknown], [info = 77639116] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.477923-05:00
+Process termination requested for pid 7731 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.479683-05:00
+Process termination requested for pid 7739 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.479681-05:00
+Process termination requested for pid 7737 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T18:12:10.483406-05:00
+Process termination requested for pid 7725 [source = unknown], [info = 77639116] [request issued by pid: 1, uid: 0]
+2020-10-15T20:29:54.209705-05:00
+Starting ORACLE instance (normal) (OS id: 6059)
+2020-10-15T20:29:54.228487-05:00
+**********************************************************************
+2020-10-15T20:29:54.228562-05:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2020-10-15T20:29:54.228743-05:00
+ Per process system memlock (soft) limit = 128G
+2020-10-15T20:29:54.228813-05:00
+ Expected per process system memlock (soft) limit to lock
+ SHARED GLOBAL AREA (SGA) into memory: 768M
+2020-10-15T20:29:54.228946-05:00
+ Available system pagesizes:
+  4K, 2048K 
+2020-10-15T20:29:54.229085-05:00
+ Supported system pagesize(s):
+2020-10-15T20:29:54.229152-05:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2020-10-15T20:29:54.229218-05:00
+        4K       Configured          196612          196612        NONE
+2020-10-15T20:29:54.229283-05:00
+ Reason for not supporting certain system pagesizes: 
+2020-10-15T20:29:54.229349-05:00
+  2048K - Dynamic allocate and free memory regions
+2020-10-15T20:29:54.229414-05:00
+**********************************************************************
+2020-10-15T20:29:57.558782-05:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2020-10-15T20:29:57.584380-05:00
+Initial number of CPU is 4
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Capability Type : Network 
+capabilities requested : 1 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as /u01/app/oracle/product/18.0.0/dbhome_1/dbs/arch
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =35
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 18c Enterprise Edition Release 18.0.0.0.0 - Production
+Version 18.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/18.0.0/dbhome_1
+System name:	Linux
+Node name:	pc-rfp.fi.unam
+Release:	3.10.0-957.el7.x86_64
+Version:	#1 SMP Thu Nov 1 00:13:43 PDT 2018
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/18.0.0/dbhome_1/dbs/spfilerfpbda2.ora
+System parameters with non-default values:
+  memory_target            = 768M
+  control_files            = "/u01/app/oracle/oradata/RFPBDA2/control01.ctl"
+  control_files            = "/u02/app/oracle/oradata/RFPBDA2/control02.ctl"
+  control_files            = "/u03/app/oracle/oradata/RFPBDA2/control03.ctl"
+  db_name                  = "rfpbda2"
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+2020-10-15T20:29:57.766219-05:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+Starting background process PMON
+2020-10-15T20:29:58.449943-05:00
+PMON started with pid=2, OS id=6077 
+Starting background process CLMN
+2020-10-15T20:29:58.465269-05:00
+CLMN started with pid=3, OS id=6079 
+Starting background process PSP0
+2020-10-15T20:29:58.480550-05:00
+PSP0 started with pid=4, OS id=6081 
+Starting background process VKTM
+2020-10-15T20:29:59.498862-05:00
+Starting background process GEN0
+2020-10-15T20:29:59.498892-05:00
+VKTM started with pid=5, OS id=6084 at elevated (RT) priority
+2020-10-15T20:29:59.500976-05:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+2020-10-15T20:29:59.514983-05:00
+GEN0 started with pid=6, OS id=6088 
+Starting background process MMAN
+2020-10-15T20:29:59.529469-05:00
+MMAN started with pid=7, OS id=6090 
+Starting background process GEN1
+Starting background process DIAG
+2020-10-15T20:29:59.574034-05:00
+GEN1 started with pid=9, OS id=6094_6095 
+Starting background process OFSD
+2020-10-15T20:29:59.589027-05:00
+DIAG started with pid=11, OS id=6097 
+Starting background process DBRM
+2020-10-15T20:29:59.609705-05:00
+OFSD started with pid=12, OS id=6099_6100 
+2020-10-15T20:29:59.610621-05:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+Starting background process VKRM
+2020-10-15T20:29:59.624980-05:00
+DBRM started with pid=14, OS id=6102 
+Starting background process SVCB
+2020-10-15T20:29:59.640320-05:00
+VKRM started with pid=15, OS id=6104 
+2020-10-15T20:29:59.655999-05:00
+SVCB started with pid=16, OS id=6106 
+Starting background process PMAN
+Starting background process DIA0
+2020-10-15T20:29:59.671765-05:00
+PMAN started with pid=17, OS id=6108 
+2020-10-15T20:29:59.687403-05:00
+DIA0 started with pid=8, OS id=6110 
+Starting background process DBW0
+2020-10-15T20:29:59.705612-05:00
+DBW0 started with pid=18, OS id=6112 
+Starting background process LGWR
+Starting background process CKPT
+2020-10-15T20:29:59.720501-05:00
+LGWR started with pid=19, OS id=6114 
+2020-10-15T20:29:59.734939-05:00
+CKPT started with pid=20, OS id=6116 
+Starting background process SMON
+2020-10-15T20:29:59.750259-05:00
+LGWR slave LG00 created with pid=21, OS pid=6118
+2020-10-15T20:29:59.764466-05:00
+SMON started with pid=22, OS id=6120 
+Starting background process SMCO
+LGWR slave LG01 created with pid=23, OS pid=6122
+2020-10-15T20:29:59.793929-05:00
+SMCO started with pid=24, OS id=6124 
+Starting background process RECO
+2020-10-15T20:29:59.808514-05:00
+RECO started with pid=25, OS id=6126 
+Starting background process LREG
+2020-10-15T20:29:59.838136-05:00
+LREG started with pid=27, OS id=6130 
+Starting background process PXMN
+2020-10-15T20:29:59.868193-05:00
+PXMN started with pid=29, OS id=6134 
+Starting background process FENC
+2020-10-15T20:29:59.882468-05:00
+FENC started with pid=30, OS id=6136 
+Starting background process MMON
+Starting background process MMNL
+2020-10-15T20:29:59.900970-05:00
+MMON started with pid=31, OS id=6138 
+2020-10-15T20:29:59.916589-05:00
+MMNL started with pid=30, OS id=6140 
+Starting background process TMON
+2020-10-15T20:29:59.931197-05:00
+TMON started with pid=32, OS id=6142 
+ORACLE_BASE from environment = /u01/app/oracle
+2020-10-15T20:30:02.627681-05:00
+Using default pga_aggregate_limit of 2048 MB
+2020-10-15T20:32:13.057346-05:00
+create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBD2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBD2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBD2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2020-10-15T20:32:13.344094-05:00
+Expanded controlfile section 32 from 31 to 128 records
+Requested to grow by 97 records; added 3 blocks of records
+.... (PID:6143): Redo network throttle feature is disabled at mount time
+2020-10-15T20:32:13.401130-05:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:6143): Using STANDBY_ARCHIVE_DEST parameter default value as /u01/app/oracle/product/18.0.0/dbhome_1/dbs/arch [krsd.c:17692]
+2020-10-15T20:32:13.402879-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6143.trc:
+ORA-01501: CREATE DATABASE failed
+ORA-00301: error in adding log file '/u01/app/oracle/oradata/RFPBD2/redo01a.log' - file cannot be created
+ORA-27040: file create error, unable to create file
+Linux-x86_64 Error: 2: No such file or directory
+Additional information: 1
+Error 301 happened during database creation, shutting down database
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6143.trc  (incident=1865):
+ORA-00603: ORACLE server session terminated by fatal error
+ORA-01092: ORACLE instance terminated. Disconnection forced
+ORA-01501: CREATE DATABASE failed
+ORA-00301: error in adding log file '/u01/app/oracle/oradata/RFPBD2/redo01a.log' - file cannot be created
+ORA-27040: file create error, unable to create file
+Linux-x86_64 Error: 2: No such file or directory
+Additional information: 1
+Incident details in: /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/incident/incdir_1865/rfpbda2_ora_6143_i1865.trc
+2020-10-15T20:32:14.442862-05:00
+opiodr aborting process unknown ospid (6143) as a result of ORA-603
+2020-10-15T20:32:14.450287-05:00
+ORA-603 : opitsk aborting process
+License high water mark = 1
+2020-10-15T20:32:14.451851-05:00
+USER (ospid: 6143): terminating the instance due to ORA error 301
+2020-10-15T20:32:15.454182-05:00
+Instance terminated by USER, pid = 6143
+2020-10-15T20:35:53.251659-05:00
+Starting ORACLE instance (normal) (OS id: 6644)
+2020-10-15T20:35:53.265260-05:00
+**********************************************************************
+2020-10-15T20:35:53.265336-05:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2020-10-15T20:35:53.265486-05:00
+ Per process system memlock (soft) limit = 128G
+2020-10-15T20:35:53.265555-05:00
+ Expected per process system memlock (soft) limit to lock
+ SHARED GLOBAL AREA (SGA) into memory: 768M
+2020-10-15T20:35:53.265717-05:00
+ Available system pagesizes:
+  4K, 2048K 
+2020-10-15T20:35:53.265848-05:00
+ Supported system pagesize(s):
+2020-10-15T20:35:53.265924-05:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2020-10-15T20:35:53.265992-05:00
+        4K       Configured          196612          196612        NONE
+2020-10-15T20:35:53.266058-05:00
+ Reason for not supporting certain system pagesizes: 
+2020-10-15T20:35:53.266125-05:00
+  2048K - Dynamic allocate and free memory regions
+2020-10-15T20:35:53.266191-05:00
+**********************************************************************
+2020-10-15T20:35:56.560691-05:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2020-10-15T20:35:56.586262-05:00
+Initial number of CPU is 4
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Capability Type : Network 
+capabilities requested : 1 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as /u01/app/oracle/product/18.0.0/dbhome_1/dbs/arch
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =35
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 18c Enterprise Edition Release 18.0.0.0.0 - Production
+Version 18.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/18.0.0/dbhome_1
+System name:	Linux
+Node name:	pc-rfp.fi.unam
+Release:	3.10.0-957.el7.x86_64
+Version:	#1 SMP Thu Nov 1 00:13:43 PDT 2018
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/18.0.0/dbhome_1/dbs/spfilerfpbda2.ora
+System parameters with non-default values:
+  memory_target            = 768M
+  control_files            = "/u01/app/oracle/oradata/RFPBDA2/control01.ctl"
+  control_files            = "/u02/app/oracle/oradata/RFPBDA2/control02.ctl"
+  control_files            = "/u03/app/oracle/oradata/RFPBDA2/control03.ctl"
+  db_name                  = "rfpbda2"
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+2020-10-15T20:35:56.698274-05:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+Starting background process PMON
+2020-10-15T20:35:57.385622-05:00
+PMON started with pid=2, OS id=6662 
+Starting background process CLMN
+2020-10-15T20:35:57.400932-05:00
+CLMN started with pid=3, OS id=6664 
+Starting background process PSP0
+2020-10-15T20:35:57.416397-05:00
+PSP0 started with pid=4, OS id=6666 
+Starting background process VKTM
+2020-10-15T20:35:58.433466-05:00
+Starting background process GEN0
+2020-10-15T20:35:58.433518-05:00
+VKTM started with pid=5, OS id=6669 at elevated (RT) priority
+2020-10-15T20:35:58.435390-05:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+2020-10-15T20:35:58.450335-05:00
+GEN0 started with pid=6, OS id=6674 
+Starting background process MMAN
+2020-10-15T20:35:58.464603-05:00
+MMAN started with pid=7, OS id=6676 
+Starting background process GEN1
+2020-10-15T20:35:58.505783-05:00
+GEN1 started with pid=9, OS id=6680_6681 
+Starting background process DIAG
+2020-10-15T20:35:58.520651-05:00
+DIAG started with pid=11, OS id=6683 
+Starting background process OFSD
+2020-10-15T20:35:58.541321-05:00
+OFSD started with pid=12, OS id=6685_6686 
+Starting background process DBRM
+2020-10-15T20:35:58.542207-05:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+2020-10-15T20:35:58.556861-05:00
+DBRM started with pid=14, OS id=6688 
+Starting background process VKRM
+2020-10-15T20:35:58.571909-05:00
+VKRM started with pid=15, OS id=6690 
+Starting background process SVCB
+2020-10-15T20:35:58.587463-05:00
+SVCB started with pid=16, OS id=6692 
+Starting background process PMAN
+2020-10-15T20:35:58.603111-05:00
+PMAN started with pid=17, OS id=6694 
+Starting background process DIA0
+2020-10-15T20:35:58.618551-05:00
+DIA0 started with pid=18, OS id=6696 
+Starting background process DBW0
+2020-10-15T20:35:58.637270-05:00
+DBW0 started with pid=8, OS id=6698 
+Starting background process LGWR
+2020-10-15T20:35:58.652188-05:00
+LGWR started with pid=19, OS id=6700 
+Starting background process CKPT
+2020-10-15T20:35:58.666731-05:00
+CKPT started with pid=20, OS id=6702 
+Starting background process SMON
+2020-10-15T20:35:58.682092-05:00
+LGWR slave LG00 created with pid=21, OS pid=6704
+2020-10-15T20:35:58.696445-05:00
+SMON started with pid=22, OS id=6706 
+Starting background process SMCO
+LGWR slave LG01 created with pid=23, OS pid=6708
+2020-10-15T20:35:58.726077-05:00
+SMCO started with pid=24, OS id=6710 
+Starting background process RECO
+2020-10-15T20:35:58.740601-05:00
+RECO started with pid=25, OS id=6712 
+Starting background process LREG
+2020-10-15T20:35:58.770477-05:00
+LREG started with pid=27, OS id=6716 
+Starting background process PXMN
+2020-10-15T20:35:58.800702-05:00
+PXMN started with pid=29, OS id=6720 
+Starting background process FENC
+Starting background process MMON
+2020-10-15T20:35:58.815157-05:00
+FENC started with pid=30, OS id=6722 
+Starting background process MMNL
+2020-10-15T20:35:58.833748-05:00
+MMON started with pid=31, OS id=6724 
+2020-10-15T20:35:58.849193-05:00
+MMNL started with pid=30, OS id=6726 
+Starting background process TMON
+2020-10-15T20:35:58.863952-05:00
+TMON started with pid=32, OS id=6728 
+ORACLE_BASE from environment = /u01/app/oracle
+2020-10-15T20:36:01.559320-05:00
+Using default pga_aggregate_limit of 2048 MB
+2020-10-15T20:36:02.864370-05:00
+create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBD2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBD2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBD2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2020-10-15T20:36:02.882820-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6729.trc:
+ORA-00200: control file could not be created
+ORA-00202: control file: '/u01/app/oracle/oradata/RFPBDA2/control01.ctl'
+ORA-27038: created file already exists
+Additional information: 1
+ORA-1501 signalled during: create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBD2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBD2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBD2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited...
+2020-10-15T20:36:02.884522-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6729.trc:
+2020-10-15T20:46:06.939735-05:00
+create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBD2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBD2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBD2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2020-10-15T20:46:07.035724-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6729.trc:
+ORA-00200: control file could not be created
+ORA-00202: control file: '/u02/app/oracle/oradata/RFPBDA2/control02.ctl'
+ORA-27038: created file already exists
+Additional information: 1
+ORA-1501 signalled during: create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBD2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBD2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBD2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited...
+2020-10-15T20:46:07.037289-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6729.trc:
+2020-10-15T20:46:07.042324-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_mz00_7374.trc:
+ORA-00202: control file: '/u01/app/oracle/oradata/RFPBDA2/control01.ctl'
+2020-10-15T20:46:07.143824-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_mz00_7374.trc:
+ORA-00227: corrupt block detected in control file: (block 1, # blocks 1)
+ORA-00202: control file: '/u01/app/oracle/oradata/RFPBDA2/control01.ctl'
+Checker run found 1 new persistent data failures
+2020-10-15T20:46:47.296169-05:00
+create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBD2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBD2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBD2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2020-10-15T20:46:47.297619-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6729.trc:
+ORA-00200: control file could not be created
+ORA-00202: control file: '/u01/app/oracle/oradata/RFPBDA2/control01.ctl'
+ORA-27038: created file already exists
+Additional information: 1
+ORA-1501 signalled during: create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBD2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBD2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBD2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBD2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBD2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited...
+2020-10-15T20:46:47.298828-05:00
+Errors in file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_6729.trc:
+2020-10-15T21:01:54.093925-05:00
+create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBDA2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBDA2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBDA2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBDA2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBDA2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBDA2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBDA2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBDA2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBDA2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2020-10-15T21:01:54.324077-05:00
+Expanded controlfile section 32 from 31 to 128 records
+Requested to grow by 97 records; added 3 blocks of records
+.... (PID:6729): Redo network throttle feature is disabled at mount time
+2020-10-15T21:01:54.380354-05:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:6729): Using STANDBY_ARCHIVE_DEST parameter default value as /u01/app/oracle/product/18.0.0/dbhome_1/dbs/arch [krsd.c:17692]
+2020-10-15T21:01:57.458317-05:00
+Successful mount of redo thread 1, with mount id 959237954
+2020-10-15T21:01:57.459521-05:00
+Ping without log force is disabled:
+  instance mounted in exclusive mode.
+Buffer Cache Full DB Caching mode changing from FULL CACHING DISABLED to FULL CACHING ENABLED 
+Database SCN compatibility initialized to 3
+2020-10-15T21:01:57.736147-05:00
+Assigning activation ID 959237954 (0x392ccf42)
+2020-10-15T21:01:57.752846-05:00
+TT00 (PID:8576): Gap Manager starting
+2020-10-15T21:01:57.863581-05:00
+Redo log for group 1, sequence 1 is not located on DAX storage
+Thread 1 opened at log sequence 1
+  Current log# 1 seq# 1 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 1 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 1 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+Successful open of redo thread 1
+2020-10-15T21:01:57.942410-05:00
+MTTR advisory is disabled because FAST_START_MTTR_TARGET is not set
+stopping change tracking
+processing ?/rdbms/admin/dcore.bsq
+create tablespace SYSTEM datafile  '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  
+  EXTENT MANAGEMENT LOCAL online
+2020-10-15T21:01:59.574741-05:00
+Endian type of dictionary set to little
+2020-10-15T21:02:00.654921-05:00
+Completed: create tablespace SYSTEM datafile  '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  
+  EXTENT MANAGEMENT LOCAL online
+create rollback segment SYSTEM tablespace SYSTEM
+  storage (initial 50K next 50K)
+Completed: create rollback segment SYSTEM tablespace SYSTEM
+  storage (initial 50K next 50K)
+2020-10-15T21:02:00.734597-05:00
+Undo initialization recovery: err:0 start: 3230204 end: 3230204 diff: 0 ms (0.0 seconds)
+Undo initialization online undo segments: err:0 start: 3230204 end: 3230204 diff: 0 ms (0.0 seconds)
+Caching undo dictionary info: used hint for object index=0 
+Caching undo dictionary info: used hint for object index=1 
+Caching undo dictionary info: used hint for object index=2 
+Caching undo dictionary info: used hint for object index=3 
+Caching undo dictionary info: used hint for object index=4 
+Undo initialization finished serial:0 start:3230204 end:3230206 diff:2 ms (0.0 seconds)
+2020-10-15T21:02:01.646934-05:00
+Buffer Cache Full DB Caching mode changing from FULL CACHING ENABLED to FULL CACHING DISABLED 
+Full DB Caching disabled: DEFAULT_CACHE_SIZE should be at least 436 MBs bigger than current size. 
+2020-10-15T21:02:01.777915-05:00
+alter tablespace system force logging
+Completed: alter tablespace system force logging
+2020-10-15T21:02:02.068697-05:00
+processing ?/rdbms/admin/dsqlddl.bsq
+processing ?/rdbms/admin/dmanage.bsq
+CREATE TABLESPACE sysaux DATAFILE  '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  
+  EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO ONLINE FORCE LOGGING
+2020-10-15T21:02:04.645814-05:00
+Completed: CREATE TABLESPACE sysaux DATAFILE  '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  
+  EXTENT MANAGEMENT LOCAL SEGMENT SPACE MANAGEMENT AUTO ONLINE FORCE LOGGING
+alter tablespace system default compress for all operations
+Completed: alter tablespace system default compress for all operations
+alter tablespace sysaux default compress for all operations
+Completed: alter tablespace sysaux default compress for all operations
+2020-10-15T21:02:04.955474-05:00
+processing ?/rdbms/admin/dplsql.bsq
+processing ?/rdbms/admin/dtxnspc.bsq
+CREATE UNDO TABLESPACE UNDOTBS1 DATAFILE  '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2020-10-15T21:02:06.677696-05:00
+[6729] Successfully onlined Undo Tablespace 2.
+Completed: CREATE UNDO TABLESPACE UNDOTBS1 DATAFILE  '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+CREATE TEMPORARY TABLESPACE TEMPTS1 TEMPFILE  '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  
+Completed: CREATE TEMPORARY TABLESPACE TEMPTS1 TEMPFILE  '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  
+ALTER DATABASE DEFAULT TEMPORARY TABLESPACE TEMPTS1
+Completed: ALTER DATABASE DEFAULT TEMPORARY TABLESPACE TEMPTS1
+CREATE  TABLESPACE USERS DATAFILE  '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+   SEGMENT SPACE MANAGEMENT AUTO
+2020-10-15T21:02:08.824096-05:00
+Completed: CREATE  TABLESPACE USERS DATAFILE  '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+   SEGMENT SPACE MANAGEMENT AUTO
+ALTER DATABASE DEFAULT TABLESPACE USERS
+Completed: ALTER DATABASE DEFAULT TABLESPACE USERS
+2020-10-15T21:02:08.948808-05:00
+processing ?/rdbms/admin/dfmap.bsq
+processing ?/rdbms/admin/denv.bsq
+processing ?/rdbms/admin/drac.bsq
+2020-10-15T21:02:10.128457-05:00
+processing ?/rdbms/admin/dsec.bsq
+2020-10-15T21:02:14.184357-05:00
+processing ?/rdbms/admin/doptim.bsq
+processing ?/rdbms/admin/dobj.bsq
+processing ?/rdbms/admin/djava.bsq
+processing ?/rdbms/admin/dpart.bsq
+2020-10-15T21:02:15.227344-05:00
+processing ?/rdbms/admin/drep.bsq
+2020-10-15T21:02:16.400281-05:00
+processing ?/rdbms/admin/daw.bsq
+processing ?/rdbms/admin/dsummgt.bsq
+processing ?/rdbms/admin/dtools.bsq
+2020-10-15T21:02:17.556401-05:00
+processing ?/rdbms/admin/dexttab.bsq
+processing ?/rdbms/admin/ddm.bsq
+processing ?/rdbms/admin/dlmnr.bsq
+processing ?/rdbms/admin/ddst.bsq
+processing ?/rdbms/admin/dfba.bsq
+processing ?/rdbms/admin/dpstdy.bsq
+processing ?/rdbms/admin/drupg.bsq
+processing ?/rdbms/admin/dtlog.bsq
+processing ?/rdbms/admin/dmisc.bsq
+2020-10-15T21:02:18.593484-05:00
+processing ?/rdbms/admin/dhcs.bsq
+2020-10-15T21:02:21.794095-05:00
+Successfully created internal service SYS$BACKGROUND at open
+Successfully created internal service SYS$USERS at open
+replication_dependency_tracking turned off (no async multimaster replication found)
+Starting background process AQPC
+2020-10-15T21:02:21.919386-05:00
+AQPC started with pid=38, OS id=8606 
+Completed: create database rfpbda2
+  user sys identified by 
+  user system identified by 
+  logfile group 1 (
+    '/u01/app/oracle/oradata/RFPBDA2/redo01a.log',
+    '/u02/app/oracle/oradata/RFPBDA2/redo01b.log',
+    '/u03/app/oracle/oradata/RFPBDA2/redo01c.log') size 50m blocksize 512,
+  group 2 (
+    '/u01/app/oracle/oradata/RFPBDA2/redo02a.log',
+    '/u02/app/oracle/oradata/RFPBDA2/redo02b.log',
+    '/u03/app/oracle/oradata/RFPBDA2/redo02c.log') size 50m blocksize 512,
+  group 3 (
+    '/u01/app/oracle/oradata/RFPBDA2/redo03a.log',
+    '/u02/app/oracle/oradata/RFPBDA2/redo03b.log',
+    '/u03/app/oracle/oradata/RFPBDA2/redo03c.log') size 50m blocksize 512
+  maxloghistory 1
+  maxlogfiles 16
+  maxlogmembers 3
+  maxdatafiles 1024
+  character set AL32UTF8
+  national character set AL16UTF16
+  extent management local
+  datafile '/u01/app/oracle/oradata/RFPBDA2/system01.dbf'
+    size 700m reuse autoextend on next 10240k maxsize unlimited
+  sysaux datafile '/u01/app/oracle/oradata/RFPBDA2/sysaux01.dbf'
+    size 550m reuse autoextend on next 10240k maxsize unlimited
+  default tablespace users
+    datafile '/u01/app/oracle/oradata/RFPBDA2/users01.dbf'
+    size 500m reuse autoextend on maxsize unlimited
+  default temporary tablespace tempts1
+    tempfile '/u01/app/oracle/oradata/RFPBDA2/temp01.dbf'
+    size 20m reuse autoextend on next 640k maxsize unlimited
+  undo tablespace undotbs1
+    datafile '/u01/app/oracle/oradata/RFPBDA2/undotbs01.dbf'
+    size 200m reuse autoextend on next 5120k maxsize unlimited
+2020-10-15T21:06:40.185972-05:00
+Thread 1 advanced to log sequence 2 (LGWR switch)
+  Current log# 2 seq# 2 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 2 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 2 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:07:20.635538-05:00
+Thread 1 advanced to log sequence 3 (LGWR switch)
+  Current log# 3 seq# 3 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 3 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 3 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:08:11.635122-05:00
+Thread 1 cannot allocate new log, sequence 4
+Checkpoint not complete
+  Current log# 3 seq# 3 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 3 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 3 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:08:14.772299-05:00
+Thread 1 advanced to log sequence 4 (LGWR switch)
+  Current log# 1 seq# 4 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 4 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 4 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:09:44.777107-05:00
+Thread 1 cannot allocate new log, sequence 5
+Checkpoint not complete
+  Current log# 1 seq# 4 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 4 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 4 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:09:47.901454-05:00
+Thread 1 advanced to log sequence 5 (LGWR switch)
+  Current log# 2 seq# 5 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 5 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 5 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:10:17.354519-05:00
+Thread 1 cannot allocate new log, sequence 6
+Checkpoint not complete
+  Current log# 2 seq# 5 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 5 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 5 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:10:19.890983-05:00
+Thread 1 advanced to log sequence 6 (LGWR switch)
+  Current log# 3 seq# 6 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 6 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 6 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:10:35.908030-05:00
+Thread 1 cannot allocate new log, sequence 7
+Checkpoint not complete
+  Current log# 3 seq# 6 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 6 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 6 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:10:38.971534-05:00
+Thread 1 advanced to log sequence 7 (LGWR switch)
+  Current log# 1 seq# 7 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 7 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 7 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:11:15.001716-05:00
+Thread 1 cannot allocate new log, sequence 8
+Checkpoint not complete
+  Current log# 1 seq# 7 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 7 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 7 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:11:17.904066-05:00
+Thread 1 advanced to log sequence 8 (LGWR switch)
+  Current log# 2 seq# 8 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 8 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 8 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:11:26.128142-05:00
+Create Relation IPS_PACKAGE_UNPACK_HISTORY
+2020-10-15T21:12:12.078609-05:00
+Thread 1 advanced to log sequence 9 (LGWR switch)
+  Current log# 3 seq# 9 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 9 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 9 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:12:39.071401-05:00
+Thread 1 cannot allocate new log, sequence 10
+Checkpoint not complete
+  Current log# 3 seq# 9 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 9 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 9 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:12:42.138179-05:00
+Thread 1 advanced to log sequence 10 (LGWR switch)
+  Current log# 1 seq# 10 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 10 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 10 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:13:06.136057-05:00
+Thread 1 cannot allocate new log, sequence 11
+Checkpoint not complete
+  Current log# 1 seq# 10 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 10 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 10 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:13:09.195191-05:00
+Thread 1 advanced to log sequence 11 (LGWR switch)
+  Current log# 2 seq# 11 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 11 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 11 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:13:39.827040-05:00
+Thread 1 cannot allocate new log, sequence 12
+Checkpoint not complete
+  Current log# 2 seq# 11 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 11 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 11 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:13:42.895037-05:00
+Thread 1 advanced to log sequence 12 (LGWR switch)
+  Current log# 3 seq# 12 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 12 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 12 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:14:00.896031-05:00
+Thread 1 cannot allocate new log, sequence 13
+Checkpoint not complete
+  Current log# 3 seq# 12 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 12 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 12 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:14:03.331617-05:00
+Thread 1 advanced to log sequence 13 (LGWR switch)
+  Current log# 1 seq# 13 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 13 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 13 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:14:30.893224-05:00
+Thread 1 cannot allocate new log, sequence 14
+Checkpoint not complete
+  Current log# 1 seq# 13 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 13 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 13 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:14:33.959915-05:00
+Thread 1 advanced to log sequence 14 (LGWR switch)
+  Current log# 2 seq# 14 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 14 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 14 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:15:09.965884-05:00
+Thread 1 cannot allocate new log, sequence 15
+Checkpoint not complete
+  Current log# 2 seq# 14 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 14 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 14 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:15:13.026839-05:00
+Thread 1 advanced to log sequence 15 (LGWR switch)
+  Current log# 3 seq# 15 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 15 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 15 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:18:16.035228-05:00
+Thread 1 cannot allocate new log, sequence 16
+Checkpoint not complete
+  Current log# 3 seq# 15 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 15 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 15 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:18:19.100108-05:00
+Thread 1 advanced to log sequence 16 (LGWR switch)
+  Current log# 1 seq# 16 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 16 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 16 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:19:28.100981-05:00
+Thread 1 cannot allocate new log, sequence 17
+Checkpoint not complete
+  Current log# 1 seq# 16 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 16 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 16 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:19:31.169263-05:00
+Thread 1 advanced to log sequence 17 (LGWR switch)
+  Current log# 2 seq# 17 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 17 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 17 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:21:43.366592-05:00
+Resize operation completed for file# 3, old size 204800K, new size 209920K
+2020-10-15T21:22:04.170405-05:00
+Thread 1 cannot allocate new log, sequence 18
+Checkpoint not complete
+  Current log# 2 seq# 17 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 17 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 17 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:22:07.233638-05:00
+Thread 1 advanced to log sequence 18 (LGWR switch)
+  Current log# 3 seq# 18 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 18 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 18 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:23:13.239166-05:00
+Thread 1 cannot allocate new log, sequence 19
+Checkpoint not complete
+  Current log# 3 seq# 18 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 18 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 18 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:23:16.294133-05:00
+Thread 1 advanced to log sequence 19 (LGWR switch)
+  Current log# 1 seq# 19 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 19 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 19 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:24:16.292929-05:00
+Thread 1 cannot allocate new log, sequence 20
+Checkpoint not complete
+  Current log# 1 seq# 19 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 19 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 19 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:24:18.755263-05:00
+Thread 1 advanced to log sequence 20 (LGWR switch)
+  Current log# 2 seq# 20 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 20 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 20 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:25:04.388704-05:00
+Thread 1 advanced to log sequence 21 (LGWR switch)
+  Current log# 3 seq# 21 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 21 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 21 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:26:55.525834-05:00
+Shared IO Pool defaulting to 12MB. Trying to get it from Buffer Cache for process 9002.
+2020-10-15T21:27:37.461481-05:00
+Thread 1 advanced to log sequence 22 (LGWR switch)
+  Current log# 1 seq# 22 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 22 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 22 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:28:09.915503-05:00
+TABLE SYS.WRI$_OPTSTAT_HISTHEAD_HISTORY: ADDED INTERVAL PARTITION SYS_P201 (44118) VALUES LESS THAN (TO_DATE(' 2020-10-16 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+2020-10-15T21:28:33.776056-05:00
+TABLE SYS.WRI$_OPTSTAT_HISTGRM_HISTORY: ADDED INTERVAL PARTITION SYS_P221 (44118) VALUES LESS THAN (TO_DATE(' 2020-10-16 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+2020-10-15T21:28:58.534516-05:00
+Thread 1 advanced to log sequence 23 (LGWR switch)
+  Current log# 2 seq# 23 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 23 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 23 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:29:40.534903-05:00
+Thread 1 cannot allocate new log, sequence 24
+Checkpoint not complete
+  Current log# 2 seq# 23 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 23 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 23 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:29:43.600579-05:00
+Thread 1 advanced to log sequence 24 (LGWR switch)
+  Current log# 3 seq# 24 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 24 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 24 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:29:58.308611-05:00
+SERVER COMPONENT id=CATPROC: status=LOADED, version=18.3.0.0.0, timestamp=2020-10-15 21:29:58
+2020-10-15T21:29:59.631904-05:00
+ALTER SYSTEM SET db_securefile='NEVER' SCOPE=BOTH;
+2020-10-15T21:29:59.659785-05:00
+ALTER SYSTEM SET db_securefile='PREFERRED' SCOPE=BOTH;
+2020-10-15T21:30:13.620175-05:00
+Thread 1 cannot allocate new log, sequence 25
+Checkpoint not complete
+  Current log# 3 seq# 24 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 24 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 24 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:30:16.693825-05:00
+Thread 1 advanced to log sequence 25 (LGWR switch)
+  Current log# 1 seq# 25 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 25 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 25 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:30:27.681612-05:00
+
+XDB installed.
+
+XDB initialized.
+2020-10-15T21:31:10.713095-05:00
+Unable to obtain current patch information due to error: 4067, ORA-04067: not executed, package body "SYS.DBMS_QOPATCH" does not exist
+ORA-06508: PL/SQL: could not find program unit being called: "SYS.DBMS_QOPATCH"
+ORA-06512: at line 1
+
+===========================================================
+Dumping current patch information
+===========================================================
+Unable to obtain current patch information due to error: 4067
+===========================================================
+2020-10-15T21:31:16.466930-05:00
+TABLE SYS.WRP$_REPORTS: ADDED INTERVAL PARTITION SYS_P241 (3941) VALUES LESS THAN (TO_DATE(' 2020-10-16 01:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+TABLE SYS.WRP$_REPORTS_DETAILS: ADDED INTERVAL PARTITION SYS_P242 (3941) VALUES LESS THAN (TO_DATE(' 2020-10-16 01:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+TABLE SYS.WRP$_REPORTS_TIME_BANDS: ADDED INTERVAL PARTITION SYS_P245 (3940) VALUES LESS THAN (TO_DATE(' 2020-10-15 01:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+2020-10-15T21:31:47.844880-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52339K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_9002.trc
+2020-10-15T21:31:47.844960-05:00
+KGL object name :ALTER VIEW "KU$_PARTITION_VIEW" COMPILE
+2020-10-15T21:31:57.137288-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 51788K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_9002.trc
+2020-10-15T21:31:57.137367-05:00
+KGL object name :ALTER VIEW "KU$_SUBPARTITION_VIEW" COMPILE
+2020-10-15T21:32:10.696322-05:00
+Thread 1 cannot allocate new log, sequence 26
+Checkpoint not complete
+  Current log# 1 seq# 25 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 25 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 25 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-15T21:32:13.751455-05:00
+Thread 1 advanced to log sequence 26 (LGWR switch)
+  Current log# 2 seq# 26 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 26 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 26 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:33:05.825403-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52827K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_9002.trc
+2020-10-15T21:33:05.825483-05:00
+KGL object name :ALTER VIEW "KU$_M_VIEW_PFH_VIEW" COMPILE
+2020-10-15T21:33:15.860292-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52760K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_9002.trc
+2020-10-15T21:33:15.860370-05:00
+KGL object name :ALTER VIEW "KU$_ZM_VIEW_PFH_VIEW" COMPILE
+2020-10-15T21:34:10.699739-05:00
+Memory Notification: Library Cache Object loaded into SGA
+Heap size 52756K exceeds notification threshold (51200K)
+Details in trace file /u01/app/oracle/diag/rdbms/rfpbda2/rfpbda2/trace/rfpbda2_ora_9002.trc
+2020-10-15T21:34:10.699832-05:00
+KGL object name :ALTER VIEW "KU$_M_ZONEMAP_PFH_VIEW" COMPILE
+2020-10-15T21:35:22.763135-05:00
+Thread 1 cannot allocate new log, sequence 27
+Private strand flush not complete
+  Current log# 2 seq# 26 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 26 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 26 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-15T21:35:25.830274-05:00
+Thread 1 advanced to log sequence 27 (LGWR switch)
+  Current log# 3 seq# 27 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 27 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 27 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-15T21:35:28.813412-05:00
+SERVER COMPONENT id=UTLRP_BGN: timestamp=2020-10-15 21:35:28
+2020-10-15T21:35:36.710548-05:00
+SERVER COMPONENT id=UTLRP_END: timestamp=2020-10-15 21:35:36
+2020-10-15T22:01:24.730294-05:00
+Process termination requested for pid 6662 [source = unknown], [info = 1206417305] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.732222-05:00
+Process termination requested for pid 6664 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.734068-05:00
+Process termination requested for pid 6666 [source = unknown], [info = 299680320] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.736345-05:00
+Process termination requested for pid 6669 [source = unknown], [info = 170920412] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.736436-05:00
+Process termination requested for pid 6692 [source = unknown], [info = 303139794] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.738291-05:00
+Process termination requested for pid 6702 [source = unknown], [info = 239] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.738295-05:00
+Process termination requested for pid 6694 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.738594-05:00
+Process termination requested for pid 6704 [source = unknown], [info = -629451864] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.738811-05:00
+Process termination requested for pid 6706 [source = unknown], [info = 1234207184] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.739016-05:00
+Process termination requested for pid 6716 [source = unknown], [info = 54580641] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.739767-05:00
+Process termination requested for pid 6676 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.740044-05:00
+Process termination requested for pid 8636 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.740316-05:00
+Process termination requested for pid 8649 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.740581-05:00
+Process termination requested for pid 10639 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.741987-05:00
+Process termination requested for pid 6718 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.742255-05:00
+Process termination requested for pid 8578 [source = unknown], [info = -454022688] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.743380-05:00
+Process termination requested for pid 6674 [source = unknown], [info = 2] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.744151-05:00
+Process termination requested for pid 8581 [source = unknown], [info = 876033588] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.745769-05:00
+Process termination requested for pid 8606 [source = unknown], [info = 306077696] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.746497-05:00
+Process termination requested for pid 6680_6680 [source = unknown], [info = 2098762064] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.746493-05:00
+Process termination requested for pid 6685_6685 [source = unknown], [info = 54862160] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.746758-05:00
+Process termination requested for pid 6683 [source = unknown], [info = 1667991588] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.746764-05:00
+Process termination requested for pid 6688 [source = unknown], [info = 306305174] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748121-05:00
+Process termination requested for pid 8621 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748390-05:00
+Process termination requested for pid 8653 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748429-05:00
+Process termination requested for pid 6708 [source = unknown], [info = -327691352] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748618-05:00
+Process termination requested for pid 6712 [source = unknown], [info = 306305174] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748648-05:00
+Process termination requested for pid 10136 [source = unknown], [info = 16208] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748709-05:00
+Process termination requested for pid 6698 [source = unknown], [info = 1751676176] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748865-05:00
+Process termination requested for pid 6714 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.748920-05:00
+Process termination requested for pid 6700 [source = unknown], [info = 1752660952] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.749041-05:00
+Process termination requested for pid 6726 [source = unknown], [info = 306305174] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.749114-05:00
+Process termination requested for pid 6710 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.749219-05:00
+Process termination requested for pid 6728 [source = unknown], [info = 1] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.750855-05:00
+Process termination requested for pid 8602 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.750851-05:00
+Process termination requested for pid 6720 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.751118-05:00
+Process termination requested for pid 8628 [source = unknown], [info = -96245376] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.751252-05:00
+Process termination requested for pid 10631 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.752738-05:00
+Process termination requested for pid 6724 [source = unknown], [info = 269092836] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.752816-05:00
+Process termination requested for pid 10635 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.752932-05:00
+Process termination requested for pid 8576 [source = unknown], [info = 2054842752] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.753207-05:00
+Process termination requested for pid 8630 [source = unknown], [info = -1282413288] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.753242-05:00
+Process termination requested for pid 8658 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.753495-05:00
+Process termination requested for pid 10633 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.753507-05:00
+Process termination requested for pid 10629 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.755139-05:00
+Process termination requested for pid 10624 [source = unknown], [info = 352] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.755159-05:00
+Process termination requested for pid 10637 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.755386-05:00
+Process termination requested for pid 10900 [source = unknown], [info = 1795136632] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.755689-05:00
+Process termination requested for pid 10641 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.757685-05:00
+Process termination requested for pid 6690 [source = unknown], [info = 40] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.757906-05:00
+Process termination requested for pid 10643 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.759474-05:00
+Process termination requested for pid 10647 [source = unknown], [info = 1792022704] [request issued by pid: 1, uid: 0]
+2020-10-15T22:01:24.759472-05:00
+Process termination requested for pid 6696 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:17:56.367803-05:00
+Starting ORACLE instance (normal) (OS id: 3913)
+2020-10-18T18:17:56.383751-05:00
+**********************************************************************
+2020-10-18T18:17:56.383827-05:00
+Dump of system resources acquired for SHARED GLOBAL AREA (SGA) 
+
+2020-10-18T18:17:56.383979-05:00
+ Per process system memlock (soft) limit = 64K
+2020-10-18T18:17:56.384071-05:00
+ Expected per process system memlock (soft) limit to lock
+ SHARED GLOBAL AREA (SGA) into memory: 768M
+2020-10-18T18:17:56.384220-05:00
+ Available system pagesizes:
+  4K, 2048K 
+2020-10-18T18:17:56.384348-05:00
+ Supported system pagesize(s):
+2020-10-18T18:17:56.384414-05:00
+  PAGESIZE  AVAILABLE_PAGES  EXPECTED_PAGES  ALLOCATED_PAGES  ERROR(s)
+2020-10-18T18:17:56.384481-05:00
+        4K       Configured          196612          196612        NONE
+2020-10-18T18:17:56.384546-05:00
+ Reason for not supporting certain system pagesizes: 
+2020-10-18T18:17:56.384613-05:00
+  2048K - Dynamic allocate and free memory regions
+2020-10-18T18:17:56.384678-05:00
+RECOMMENDATION:
+2020-10-18T18:17:56.384744-05:00
+ 1. Increase per process memlock (soft) limit to at least 768MB
+ to lock 100% of SHARED GLOBAL AREA (SGA) pages into physical memory
+2020-10-18T18:17:56.384874-05:00
+**********************************************************************
+2020-10-18T18:17:59.686547-05:00
+LICENSE_MAX_SESSION = 0
+LICENSE_SESSIONS_WARNING = 0
+2020-10-18T18:17:59.712252-05:00
+Initial number of CPU is 4
+Number of processor cores in the system is 2
+Number of processor sockets in the system is 1
+Capability Type : Network 
+capabilities requested : 1 detected : 0 Simulated : 0
+Capability Type : Runtime Environment 
+capabilities requested : 400000FF detected : 40000000 Simulated : 0
+Capability Type : Engineered Systems 
+capabilities requested : 3 detected : 0 Simulated : 0
+Using LOG_ARCHIVE_DEST_1 parameter default value as /u01/app/oracle/product/18.0.0/dbhome_1/dbs/arch
+Autotune of undo retention is turned on. 
+IMODE=BR
+ILAT =35
+LICENSE_MAX_USERS = 0
+SYS auditing is enabled
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+NOTE: Using default ASM root directory ASM
+NOTE: Cluster configuration type = NONE [2]
+Oracle Database 18c Enterprise Edition Release 18.0.0.0.0 - Production
+Version 18.3.0.0.0.
+ORACLE_HOME:    /u01/app/oracle/product/18.0.0/dbhome_1
+System name:	Linux
+Node name:	pc-rfp.fi.unam
+Release:	3.10.0-957.el7.x86_64
+Version:	#1 SMP Thu Nov 1 00:13:43 PDT 2018
+Machine:	x86_64
+Using parameter settings in server-side spfile /u01/app/oracle/product/18.0.0/dbhome_1/dbs/spfilerfpbda2.ora
+System parameters with non-default values:
+  memory_target            = 768M
+  control_files            = "/u01/app/oracle/oradata/RFPBDA2/control01.ctl"
+  control_files            = "/u02/app/oracle/oradata/RFPBDA2/control02.ctl"
+  control_files            = "/u03/app/oracle/oradata/RFPBDA2/control03.ctl"
+  db_securefile            = "PREFERRED"
+  db_name                  = "rfpbda2"
+NOTE: remote asm mode is local (mode 0x1; from cluster type)
+2020-10-18T18:17:59.879048-05:00
+============================================================
+NOTE: PatchLevel of this instance 0
+============================================================
+Starting background process PMON
+2020-10-18T18:18:00.607993-05:00
+PMON started with pid=2, OS id=3924 
+Starting background process CLMN
+2020-10-18T18:18:00.623192-05:00
+CLMN started with pid=3, OS id=3926 
+Starting background process PSP0
+2020-10-18T18:18:00.638432-05:00
+PSP0 started with pid=4, OS id=3928 
+Starting background process VKTM
+2020-10-18T18:18:01.657335-05:00
+Starting background process GEN0
+2020-10-18T18:18:01.657392-05:00
+VKTM started with pid=5, OS id=3930 at elevated (RT) priority
+2020-10-18T18:18:01.659428-05:00
+VKTM running at (1)millisec precision with DBRM quantum (100)ms
+Starting background process MMAN
+2020-10-18T18:18:01.671788-05:00
+GEN0 started with pid=6, OS id=3935 
+2020-10-18T18:18:01.685955-05:00
+MMAN started with pid=7, OS id=3937 
+Starting background process GEN1
+Starting background process DIAG
+2020-10-18T18:18:01.726457-05:00
+GEN1 started with pid=9, OS id=3941_3942 
+Starting background process OFSD
+2020-10-18T18:18:01.741389-05:00
+DIAG started with pid=11, OS id=3944 
+Starting background process DBRM
+2020-10-18T18:18:01.761689-05:00
+OFSD started with pid=12, OS id=3946_3947 
+2020-10-18T18:18:01.762659-05:00
+Oracle running with ofslib:'Oracle File Server Library' version=2
+Starting background process VKRM
+2020-10-18T18:18:01.776660-05:00
+DBRM started with pid=14, OS id=3949 
+2020-10-18T18:18:01.791563-05:00
+VKRM started with pid=15, OS id=3951 
+Starting background process SVCB
+2020-10-18T18:18:01.806552-05:00
+SVCB started with pid=16, OS id=3953 
+Starting background process PMAN
+2020-10-18T18:18:01.822069-05:00
+PMAN started with pid=17, OS id=3955 
+Starting background process DIA0
+Starting background process DBW0
+2020-10-18T18:18:01.841576-05:00
+DIA0 started with pid=18, OS id=3957 
+2020-10-18T18:18:01.858899-05:00
+DBW0 started with pid=8, OS id=3959 
+Starting background process LGWR
+2020-10-18T18:18:01.873497-05:00
+LGWR started with pid=19, OS id=3961 
+Starting background process CKPT
+2020-10-18T18:18:01.887786-05:00
+CKPT started with pid=20, OS id=3963 
+Starting background process SMON
+2020-10-18T18:18:01.903367-05:00
+LGWR slave LG00 created with pid=21, OS pid=3965
+2020-10-18T18:18:01.917647-05:00
+SMON started with pid=22, OS id=3967 
+Starting background process SMCO
+LGWR slave LG01 created with pid=23, OS pid=3969
+2020-10-18T18:18:01.946836-05:00
+SMCO started with pid=24, OS id=3971 
+Starting background process RECO
+2020-10-18T18:18:01.961331-05:00
+RECO started with pid=25, OS id=3973 
+Starting background process LREG
+2020-10-18T18:18:01.990648-05:00
+LREG started with pid=27, OS id=3977 
+Starting background process PXMN
+2020-10-18T18:18:02.020736-05:00
+PXMN started with pid=29, OS id=3981 
+Starting background process FENC
+2020-10-18T18:18:02.035100-05:00
+FENC started with pid=30, OS id=3983 
+Starting background process MMON
+Starting background process MMNL
+2020-10-18T18:18:02.053291-05:00
+MMON started with pid=31, OS id=3985 
+2020-10-18T18:18:02.068683-05:00
+MMNL started with pid=32, OS id=3987 
+Starting background process TMON
+2020-10-18T18:18:02.082906-05:00
+TMON started with pid=30, OS id=3989 
+ORACLE_BASE from environment = /u01/app/oracle
+2020-10-18T18:18:02.140646-05:00
+ALTER DATABASE   MOUNT
+2020-10-18T18:18:04.782752-05:00
+Using default pga_aggregate_limit of 2048 MB
+2020-10-18T18:18:06.220698-05:00
+.... (PID:3990): Redo network throttle feature is disabled at mount time
+2020-10-18T18:18:06.298483-05:00
+Successful mount of redo thread 1, with mount id 959480154
+2020-10-18T18:18:06.298871-05:00
+Database mounted in Exclusive Mode
+Lost write protection disabled
+.... (PID:3990): Using STANDBY_ARCHIVE_DEST parameter default value as /u01/app/oracle/product/18.0.0/dbhome_1/dbs/arch [krsd.c:17692]
+Completed: ALTER DATABASE   MOUNT
+2020-10-18T18:18:06.426023-05:00
+ALTER DATABASE OPEN
+Ping without log force is disabled:
+  instance mounted in exclusive mode.
+2020-10-18T18:18:06.475046-05:00
+Beginning crash recovery of 1 threads
+ parallel recovery started with 3 processes
+ Thread 1: Recovery starting at checkpoint rba (logseq 27 block 20032), scn 0
+2020-10-18T18:18:06.508572-05:00
+Started redo scan
+2020-10-18T18:18:06.607856-05:00
+Completed redo scan
+ read 6642 KB redo, 1648 data blocks need recovery
+2020-10-18T18:18:06.770591-05:00
+Started redo application at
+ Thread 1: logseq 27, block 20032, offset 0
+2020-10-18T18:18:06.771043-05:00
+Recovery of Online Redo Log: Thread 1 Group 3 Seq 27 Reading mem 0
+  Mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-18T18:18:06.793328-05:00
+Completed redo application of 6.04MB
+2020-10-18T18:18:07.023314-05:00
+Completed crash recovery at
+ Thread 1: RBA 27.33316.16, nab 33316, scn 0x000000000005ba6e
+ 1648 data blocks read, 1648 data blocks written, 6642 redo k-bytes read
+Endian type of dictionary set to little
+2020-10-18T18:18:07.129862-05:00
+TT00 (PID:4007): Gap Manager starting
+2020-10-18T18:18:07.213574-05:00
+Thread 1 advanced to log sequence 28 (thread open)
+Redo log for group 1, sequence 28 is not located on DAX storage
+Thread 1 opened at log sequence 28
+  Current log# 1 seq# 28 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 28 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 28 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+Successful open of redo thread 1
+2020-10-18T18:18:07.259219-05:00
+MTTR advisory is disabled because FAST_START_MTTR_TARGET is not set
+stopping change tracking
+2020-10-18T18:18:07.479631-05:00
+Undo initialization recovery: err:0 start: 266927 end: 266945 diff: 18 ms (0.0 seconds)
+[3999] Successfully onlined Undo Tablespace 2.
+Undo initialization online undo segments: err:0 start: 266945 end: 267006 diff: 61 ms (0.1 seconds)
+Undo initialization finished serial:0 start:266927 end:267017 diff:90 ms (0.1 seconds)
+Verifying minimum file header compatibility for tablespace encryption..
+Verifying file header compatibility for tablespace encryption completed for pdb 0
+Database Characterset is AL32UTF8
+No Resource Manager plan active
+2020-10-18T18:18:08.462919-05:00
+replication_dependency_tracking turned off (no async multimaster replication found)
+2020-10-18T18:18:08.665450-05:00
+Starting background process AQPC
+2020-10-18T18:18:08.679821-05:00
+AQPC started with pid=42, OS id=4016 
+Starting background process CJQ0
+Completed: ALTER DATABASE OPEN
+2020-10-18T18:18:09.046259-05:00
+CJQ0 started with pid=43, OS id=4019 
+2020-10-18T18:18:10.315448-05:00
+Unable to obtain current patch information due to error: 20001, ORA-20001: Latest xml inventory is not loaded into table
+ORA-06512: at "SYS.DBMS_QOPATCH", line 767
+ORA-06512: at "SYS.DBMS_QOPATCH", line 846
+ORA-06510: PL/SQL: unhandled user-defined exception
+ORA-06512: at "SYS.DBMS_QOPATCH", line 841
+ORA-29913: error in executing ODCIEXTTABLEFETCH callout
+ORA-29400: data cartridge error
+KUP-04095: preprocessor command /u01/app/oracle/product/18.0.0/dbhome_1/QOpatch/qopiprep.bat encountered error "/u01/app/oracle/product/18.0.0/dbhome_1/QOpatch/qopiprep.bat: line 73: /u01/app/oracle/product/18.0.0/dbhome_1/bin/orabasehome: Permission denied
+/u01/app/oracl"
+ORA-06512: at "SYS.DBMS_QOPATCH", line 832
+ORA-06512: at "SYS.DBMS_QOPATCH", line 2101
+ORA-06512: at "SYS.DBMS_QOPATCH", line 730
+ORA-06512: at "SYS.DBMS_QOPATCH", line 2124
+
+===========================================================
+Dumping current patch information
+===========================================================
+Unable to obtain current patch information due to error: 20001
+===========================================================
+2020-10-18T18:18:12.405625-05:00
+Setting Resource Manager plan SCHEDULER[0x4CBB]:DEFAULT_MAINTENANCE_PLAN via scheduler window
+Setting Resource Manager plan DEFAULT_MAINTENANCE_PLAN via parameter
+2020-10-18T18:18:15.793624-05:00
+Begin automatic SQL Tuning Advisor run for special tuning task  "SYS_AUTO_SQL_TUNING_TASK"
+End automatic SQL Tuning Advisor run for special tuning task  "SYS_AUTO_SQL_TUNING_TASK"
+2020-10-18T18:18:21.776832-05:00
+TABLE SYS.WRI$_OPTSTAT_HISTHEAD_HISTORY: ADDED INTERVAL PARTITION SYS_P261 (44121) VALUES LESS THAN (TO_DATE(' 2020-10-19 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+TABLE SYS.WRI$_OPTSTAT_HISTGRM_HISTORY: ADDED INTERVAL PARTITION SYS_P264 (44121) VALUES LESS THAN (TO_DATE(' 2020-10-19 00:00:00', 'SYYYY-MM-DD HH24:MI:SS', 'NLS_CALENDAR=GREGORIAN'))
+2020-10-18T18:18:53.384787-05:00
+Thread 1 cannot allocate new log, sequence 29
+Private strand flush not complete
+  Current log# 1 seq# 28 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo01a.log
+  Current log# 1 seq# 28 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo01b.log
+  Current log# 1 seq# 28 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo01c.log
+2020-10-18T18:18:56.462142-05:00
+Thread 1 advanced to log sequence 29 (LGWR switch)
+  Current log# 2 seq# 29 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 29 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 29 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-18T18:19:35.493447-05:00
+Thread 1 cannot allocate new log, sequence 30
+Private strand flush not complete
+  Current log# 2 seq# 29 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo02a.log
+  Current log# 2 seq# 29 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo02b.log
+  Current log# 2 seq# 29 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo02c.log
+2020-10-18T18:19:38.552844-05:00
+Thread 1 advanced to log sequence 30 (LGWR switch)
+  Current log# 3 seq# 30 mem# 0: /u01/app/oracle/oradata/RFPBDA2/redo03a.log
+  Current log# 3 seq# 30 mem# 1: /u02/app/oracle/oradata/RFPBDA2/redo03b.log
+  Current log# 3 seq# 30 mem# 2: /u03/app/oracle/oradata/RFPBDA2/redo03c.log
+2020-10-18T18:22:29.201065-05:00
+JIT: pid 4829 requesting full stop
+2020-10-18T18:24:29.525579-05:00
+Process termination requested for pid 3930 [source = unknown], [info = -1098163748] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.527199-05:00
+Process termination requested for pid 3944 [source = unknown], [info = 261207959] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.527527-05:00
+Process termination requested for pid 3926 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.528802-05:00
+Process termination requested for pid 3949 [source = unknown], [info = 306305174] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.528956-05:00
+Process termination requested for pid 3935 [source = unknown], [info = 2] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.529017-05:00
+Process termination requested for pid 3951 [source = unknown], [info = 116389023] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.529175-05:00
+Process termination requested for pid 3961 [source = unknown], [info = 1895267288] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.529451-05:00
+Process termination requested for pid 3969 [source = unknown], [info = 140014504] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.529704-05:00
+Process termination requested for pid 4001 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.529951-05:00
+Process termination requested for pid 4003 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.530230-05:00
+Process termination requested for pid 4011 [source = unknown], [info = 875837238] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.530552-05:00
+Process termination requested for pid 3975 [source = unknown], [info = -566042448] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.530706-05:00
+Process termination requested for pid 3973 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.530919-05:00
+Process termination requested for pid 3977 [source = unknown], [info = 54580641] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.532364-05:00
+Process termination requested for pid 3979 [source = unknown], [info = 2096832176] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.534127-05:00
+Process termination requested for pid 4016 [source = unknown], [info = 306077696] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.534130-05:00
+Process termination requested for pid 3985 [source = unknown], [info = 306305174] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.534176-05:00
+Process termination requested for pid 4023 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.534343-05:00
+Process termination requested for pid 4019 [source = unknown], [info = 306305174] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.534417-05:00
+Process termination requested for pid 4085 [source = unknown], [info = 1930818736] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.534621-05:00
+Process termination requested for pid 4025 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.535834-05:00
+Process termination requested for pid 4027 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.536258-05:00
+Process termination requested for pid 4031 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.536309-05:00
+Process termination requested for pid 4138 [source = unknown], [info = 1] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.536584-05:00
+Process termination requested for pid 4172 [source = unknown], [info = -305337952] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.537418-05:00
+Process termination requested for pid 4029 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.537709-05:00
+Process termination requested for pid 4048 [source = unknown], [info = 1690913704] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.537982-05:00
+Process termination requested for pid 4066 [source = unknown], [info = 25202224] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.538278-05:00
+Process termination requested for pid 4130 [source = unknown], [info = -666203776] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.538281-05:00
+Process termination requested for pid 4182 [source = unknown], [info = 1148164512] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.539015-05:00
+Process termination requested for pid 4143 [source = unknown], [info = -1133374288] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.539356-05:00
+Process termination requested for pid 3924 [source = unknown], [info = 1861228441] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.540085-05:00
+Process termination requested for pid 4134 [source = unknown], [info = 629053856] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.540398-05:00
+Process termination requested for pid 4154 [source = unknown], [info = 1703579056] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.540810-05:00
+Process termination requested for pid 4166 [source = unknown], [info = 1411504544] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.541006-05:00
+Process termination requested for pid 3928 [source = unknown], [info = 299680320] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.542308-05:00
+Process termination requested for pid 4164 [source = unknown], [info = -559351392] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.542466-05:00
+Process termination requested for pid 4168 [source = unknown], [info = 1077266848] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.542514-05:00
+Process termination requested for pid 3937 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.544243-05:00
+Process termination requested for pid 4176 [source = unknown], [info = -984520288] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.544246-05:00
+Process termination requested for pid 4170 [source = unknown], [info = -1972819552] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.546069-05:00
+Process termination requested for pid 4184 [source = unknown], [info = -545089120] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.546105-05:00
+Process termination requested for pid 4174 [source = unknown], [info = 1713408416] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.546575-05:00
+Process termination requested for pid 3941_3941 [source = unknown], [info = -1735044784] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.546913-05:00
+Process termination requested for pid 3946_3946 [source = unknown], [info = -2116562608] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.547150-05:00
+Process termination requested for pid 3953 [source = unknown], [info = -719364616] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.547907-05:00
+Process termination requested for pid 4178 [source = unknown], [info = -1696757344] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.547911-05:00
+Process termination requested for pid 4186 [source = unknown], [info = -1794500192] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.548714-05:00
+Process termination requested for pid 3957 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.549729-05:00
+Process termination requested for pid 4180 [source = unknown], [info = 16208] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.550748-05:00
+Process termination requested for pid 3959 [source = unknown], [info = 1894282512] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.550956-05:00
+Process termination requested for pid 3963 [source = unknown], [info = 239] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.551241-05:00
+Process termination requested for pid 3965 [source = unknown], [info = -122543192] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.551348-05:00
+Process termination requested for pid 3955 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.551401-05:00
+Process termination requested for pid 4188 [source = unknown], [info = -1006007904] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.551436-05:00
+Process termination requested for pid 3967 [source = unknown], [info = 1] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.551642-05:00
+Process termination requested for pid 3971 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.553135-05:00
+Process termination requested for pid 4196 [source = unknown], [info = -1162544736] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.553142-05:00
+Process termination requested for pid 3981 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.553147-05:00
+Process termination requested for pid 4190 [source = unknown], [info = -1717163616] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.554745-05:00
+Process termination requested for pid 3987 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.554836-05:00
+Process termination requested for pid 4192 [source = unknown], [info = 1042164128] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.554955-05:00
+Process termination requested for pid 3989 [source = unknown], [info = 1] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.556665-05:00
+Process termination requested for pid 4194 [source = unknown], [info = -53618272] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.556667-05:00
+Process termination requested for pid 3994 [source = unknown], [info = 1701185088] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.556943-05:00
+Process termination requested for pid 4005 [source = unknown], [info = 0] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.557184-05:00
+Process termination requested for pid 4007 [source = unknown], [info = -1774134912] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.557456-05:00
+Process termination requested for pid 4009 [source = unknown], [info = 1577100768] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.558478-05:00
+Process termination requested for pid 4212 [source = unknown], [info = -557925984] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.558963-05:00
+Process termination requested for pid 4014 [source = unknown], [info = 1019047472] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.560790-05:00
+Process termination requested for pid 4046 [source = unknown], [info = 1701296080] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.561075-05:00
+Process termination requested for pid 4136 [source = unknown], [info = 1] [request issued by pid: 1, uid: 0]
+2020-10-18T18:24:29.562890-05:00
+Process termination requested for pid 4148 [source = unknown], [info = -918688336] [request issued by pid: 1, uid: 0]
