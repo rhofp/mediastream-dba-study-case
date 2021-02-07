@@ -1,0 +1,11 @@
+= Bases de datos avanzadas
+
+== Proyecto, opcional
+
+* Modos de conexión
+* La carga de datos se deja de manera opcional, no deben ser 2000
+* Datos blobs son opcionales
+* Simulación de carga diaria
+* Simulación de instance recovery
+* Simulación de complete media recovery
+* Respaldo inicial (puede ser solo full)
