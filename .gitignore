@@ -2,10 +2,13 @@
 # Created by https://www.toptal.com/developers/gitignore/api/latex
 # Edit at https://www.toptal.com/developers/gitignore?templates=latex
 drive/
-primer-parcial/
+examenes/
+other/
 series/
 tareas/
 .build/
+
+*.zip
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:
