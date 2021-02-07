@@ -92,6 +92,7 @@
 %   subtitle and 
 %   the university logo
 \fancyhead[R]{
+  \def\arraystretch{1}
     \begin{tabular}{l}
         \materia \\ 
         \actividad%
@@ -185,12 +186,6 @@
 %%%%%%%%%%                        Contents                           %%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section*{Modelo relacional global}
-
-\begin{center}
-\includegraphics[width=0.95\textheight,angle=90]{media-stream-modelo}
-\end{center}
-
 \section{Creación de la base de datos}
 
 \newcounter{counterI}
@@ -212,9 +207,8 @@
   %
   % row 1
   \stepcounter{counterI} \arabic{counterI} &
-  Se encuentra en la región AME y es el servidor con la mayor capacidad 
-  de procesamiento & 
-  Hola% 
+  & 
+  % 
   \\ \hline
   \end{longtable}
 }
@@ -252,7 +246,7 @@
   \begin{longtable}{
     |C{0.1\linewidth}
     |p{0.49\linewidth}
-    |p{0.3\linewidth}|}
+    |C{0.3\linewidth}|}
   \hline
   %%%%% Start: Table header 
   \textbf{Nombre del módulo} &
@@ -262,10 +256,20 @@
   %%%%% End: Table header 
   %
   % row 1
-    Hola &
-  Se encuentra en la región AME y es el servidor con la mayor capacidad 
-  de procesamiento & 
-  Hola% 
+  multimedia &
+  Este módulo se encarga de almacenar todo el contenido multimedia de la empresa
+  mediaStream, se decide crear un módulo solo para los datos multimedia debido
+  al volumen de datos que se manejará, será grande en especial porque se hace
+  uso de datos BLOB & 
+  admin\_multimedia% 
+  \\ \hline
+  usuarios &
+  En este módulo se almacena la información de los usuarios, sus planes y su
+  tarjeta para controlar toda la parte financiera - administrativa de
+  mediaStream. Además, este módulo se almacena la tabla \textit{streaming} lo
+  cual es de vital importancia debido a la cantidad masiva de datos que se
+  recolectará en ella.&
+  admin\_usuario% 
   \\ \hline
   \end{longtable}
 }
@@ -278,7 +282,7 @@
                                 % enclose table inside brackets)
   \begin{longtable}{
     |p{0.4\linewidth}
-    |p{0.5\linewidth}|}
+    |C{0.5\linewidth}|}
   \hline
   %%%%% Start: Table header 
   \textbf{Nombre de la tabla} & 
@@ -287,8 +291,80 @@
   %%%%% End: Table header 
   %
   % row 1
-  Número y ubicación de los archivos de control & 
-  Hola% 
+  AUTOR & 
+  multimedia% 
+  \\ \hline
+  % row 2
+  AUTOR\_MULTIMEDIA & 
+  multimedia% 
+  \\ \hline
+  % row 3
+  COMENTARIO & 
+  multimedia% 
+  \\ \hline
+  % row 4
+  GENERO\_CONTENIDO & 
+  multimedia% 
+  \\ \hline
+  % row 5
+  MULTIMEDIA & 
+  multimedia% 
+  \\ \hline
+  % row 6
+  SECCIONES\_MULTIMEDIA & 
+  multimedia% 
+  \\ \hline
+  % row 7
+  MUSICA & 
+  multimedia% 
+  \\ \hline
+  % row 8
+  VIDEO & 
+  multimedia% 
+  \\ \hline
+  % row 9
+  CARGO\_TARJETA & 
+  usuarios% 
+  \\ \hline
+  % row 10
+  DISPOSITIVO\_TARJETA & 
+  usuarios% 
+  \\ \hline
+  % row 11
+  HISTORICO\_PLAN\_SUSCRIPTOR & 
+  usuarios% 
+  \\ \hline
+  % row 12
+  PLAN\_SUSCRIPTOR & 
+  usuarios% 
+  \\ \hline
+  % row 13
+  PLAYLIST & 
+  usuarios% 
+  \\ \hline
+  % row 14
+  PLAYLIST\_CONTENIDO & 
+  usuarios% 
+  \\ \hline
+  % row 15
+  PLAYLIST\_USUARIO\_AUTORIZADO & 
+  usuarios% 
+  \\ \hline
+  % row 16
+  STREAMING & 
+  usuarios% 
+  \\ \hline
+  % row 17
+  TARJETA & 
+  usuarios% 
+  \\ \hline
+  % row 18
+  USUARIO & 
+  usuarios% 
+  \\ \hline
+  % row 19
+  USUARIO\_ASOCIADO & 
+  usuarios% 
   \\ \hline
   \end{longtable}
 }
@@ -321,6 +397,28 @@
   \\ \hline
   \end{longtable}
 }
+
+
+\section*{Modelo relacional global}
+
+\begin{center}
+\includegraphics[width=0.95\textheight,angle=90]{media-stream-modelo-global}
+\end{center}
+
+
+\section*{Modelo relacional por módulo}
+
+\textbf{Módulo 01:} Contenido multimedia (\textit{multimedia})
+
+\begin{center}
+\includegraphics[width=0.95\textwidth]{media-stream-modulo-01}
+\end{center}
+
+\textbf{Módulo 02:} Streaming - Usuarios (\textit{usuarios})
+
+\begin{center}
+\includegraphics[width=0.95\textwidth]{media-stream-modulo-01}
+\end{center}
 
 \section{Diseño físico de la BD}
 
@@ -408,7 +506,7 @@
   \hline
   %%%%% Start: Table header 
   \textbf{Nombre de la tabla} & 
-  \textbf{Nombre del módulo}
+  \textbf{Nombre del tablespace}
   \\ \hline
   %%%%% End: Table header 
   %
