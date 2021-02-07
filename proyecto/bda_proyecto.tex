@@ -32,7 +32,7 @@
 \titleformat*{\section}{\large\bfseries}  % Change section size
 \titleformat*{\subsection}
 {\normalsize\bfseries}                    % Change subsection size
-\marginsize{1.4cm}{1.4cm}{1.2cm}{1.2cm}   % {left}{right}{above}{below}
+\marginsize{1.4cm}{1.5cm}{1.2cm}{1.2cm}   % {left}{right}{above}{below}
 \setlength{\headsep}{0.3in}               % Changing headsep length
                                           % headsep is the vertical length 
                                           % between header an text area
@@ -232,7 +232,27 @@
   %
   % row 1
   Número y ubicación de los archivos de control & 
-  Hola% 
+  % 
+  \\ \hline
+  % row 2
+  Propuesta de grupos de REDO & 
+  % 
+  \\ \hline
+  % row 3
+  Propuesta de juego de caracteres & 
+  % 
+  \\ \hline
+  % row 4
+  Tamaño de bloque de datos & 
+  % 
+  \\ \hline
+  % row 5
+  Lista de parámetros que serán configurados al crear la base de datos & 
+  % 
+  \\ \hline
+  % row 6
+  Archivo de passwords & 
+  % 
   \\ \hline
   \end{longtable}
 }
@@ -256,13 +276,6 @@
   %%%%% End: Table header 
   %
   % row 1
-  multimedia &
-  Este módulo se encarga de almacenar todo el contenido multimedia de la empresa
-  mediaStream, se decide crear un módulo solo para los datos multimedia debido
-  al volumen de datos que se manejará, será grande en especial porque se hace
-  uso de datos BLOB & 
-  admin\_multimedia% 
-  \\ \hline
   usuarios &
   En este módulo se almacena la información de los usuarios, sus planes y su
   tarjeta para controlar toda la parte financiera - administrativa de
@@ -270,6 +283,14 @@
   cual es de vital importancia debido a la cantidad masiva de datos que se
   recolectará en ella.&
   admin\_usuario% 
+  \\ \hline
+  % row 2
+  multimedia &
+  Este módulo se encarga de almacenar todo el contenido multimedia de la empresa
+  mediaStream, se decide crear un módulo solo para los datos multimedia debido
+  al volumen de datos que se manejará, será grande en especial porque se hace
+  uso de datos BLOB & 
+  admin\_multimedia% 
   \\ \hline
   \end{longtable}
 }
@@ -290,38 +311,6 @@
   \\ \hline
   %%%%% End: Table header 
   %
-  % row 1
-  AUTOR & 
-  multimedia% 
-  \\ \hline
-  % row 2
-  AUTOR\_MULTIMEDIA & 
-  multimedia% 
-  \\ \hline
-  % row 3
-  COMENTARIO & 
-  multimedia% 
-  \\ \hline
-  % row 4
-  GENERO\_CONTENIDO & 
-  multimedia% 
-  \\ \hline
-  % row 5
-  MULTIMEDIA & 
-  multimedia% 
-  \\ \hline
-  % row 6
-  SECCIONES\_MULTIMEDIA & 
-  multimedia% 
-  \\ \hline
-  % row 7
-  MUSICA & 
-  multimedia% 
-  \\ \hline
-  % row 8
-  VIDEO & 
-  multimedia% 
-  \\ \hline
   % row 9
   CARGO\_TARJETA & 
   usuarios% 
@@ -365,6 +354,38 @@
   % row 19
   USUARIO\_ASOCIADO & 
   usuarios% 
+  \\ \hline
+  % row 1
+  AUTOR & 
+  multimedia% 
+  \\ \hline
+  % row 2
+  AUTOR\_MULTIMEDIA & 
+  multimedia% 
+  \\ \hline
+  % row 3
+  COMENTARIO & 
+  multimedia% 
+  \\ \hline
+  % row 4
+  GENERO\_CONTENIDO & 
+  multimedia% 
+  \\ \hline
+  % row 5
+  MULTIMEDIA & 
+  multimedia% 
+  \\ \hline
+  % row 6
+  SECCIONES\_MULTIMEDIA & 
+  multimedia% 
+  \\ \hline
+  % row 7
+  MUSICA & 
+  multimedia% 
+  \\ \hline
+  % row 8
+  VIDEO & 
+  multimedia% 
   \\ \hline
   \end{longtable}
 }
@@ -422,6 +443,8 @@
 
 \section{Diseño físico de la BD}
 
+\includegraphics[width=0.9\textwidth]{arquitectura-bd-mediastream.png}
+
 \subsection{Definición de tablespaces comunes a los módulos}
 
 {
@@ -439,8 +462,12 @@
   %%%%% End: Table header 
   %
   % row 1
-  Número y ubicación de los archivos de control & 
-  Hola% 
+  usuarios\_tbs & 
+  % 
+  \\ \hline
+  % row 2
+  multimedia\_tbs & 
+  % 
   \\ \hline
   \end{longtable}
 }
@@ -452,9 +479,9 @@
   \def\arraystretch{2}          % Do not define globally (for that reason we
                                 % enclose table inside brackets)
   \begin{longtable}{
-    |p{0.25\linewidth}
-    |p{0.25\linewidth}
-    |p{0.37\linewidth}|}
+    |C{0.23\linewidth}
+    |p{0.4\linewidth}
+    |C{0.24\linewidth}|}
   \hline
   %%%%% Start: Table header 
   \textbf{Nombre del tablespace} & 
@@ -464,9 +491,18 @@
   %%%%% End: Table header 
   %
   % row 1
-  Número y ubicación de los archivos de control & 
-  Número y ubicación de los archivos de control & 
-  Hola% 
+  usuarios\_tbs & 
+  Almacenar todos los datos referidos a los usuarios (tarjeta, plan de
+  suscripción, playlist, pagos y dispositivos) así como también la información
+  del consumo de contenido por streaming & 
+  Permanente y small file% 
+  \\ \hline
+  % row 2 
+  multimedia\_tbs &
+  Almacenar los datos referidos al contenido multimedia de mediaStream. Este
+  módulo permite almacenar datos BLOB y CLOB de manera independiente a los
+  datos del usuario. &
+  permanente y bigfile
   \\ \hline
   \end{longtable}
 }
@@ -488,8 +524,12 @@
   %%%%% End: Table header 
   %
   % row 1
-  Número y ubicación de los archivos de control & 
-  Hola% 
+  usuarios\_tbs & 
+  % 
+  \\ \hline
+  % row 2
+  multimedia\_tbs & 
+  % 
   \\ \hline
   \end{longtable}
 }
@@ -510,13 +550,87 @@
   \\ \hline
   %%%%% End: Table header 
   %
-  % row 1
-  Número y ubicación de los archivos de control & 
-  Hola% 
+  % row 9
+  CARGO\_TARJETA & 
+  usuarios\_tbs% 
   \\ \hline
+  % row 10
+  DISPOSITIVO\_TARJETA & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 11
+  HISTORICO\_PLAN\_SUSCRIPTOR & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 12
+  PLAN\_SUSCRIPTOR & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 13
+  PLAYLIST & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 14
+  PLAYLIST\_CONTENIDO & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 15
+  PLAYLIST\_USUARIO\_AUTORIZADO & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 16
+  STREAMING & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 17
+  TARJETA & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 18
+  USUARIO & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 19
+  USUARIO\_ASOCIADO & 
+  usuarios\_tbs% 
+  \\ \hline
+  % row 1
+  AUTOR & 
+  multimedia\_tbs 
+  \\ \hline
+  % row 2
+  AUTOR\_MULTIMEDIA & 
+  multimedia\_tbs 
+  \\ \hline
+  % row 3
+  COMENTARIO & 
+  multimedia\_tbs 
+  \\ \hline
+  % row 4
+  GENERO\_CONTENIDO & 
+  multimedia\_tbs 
+  \\ \hline
+  % row 5
+  MULTIMEDIA & 
+  multimedia\_tbs 
+  \\ \hline
+  % row 6
+  SECCIONES\_MULTIMEDIA & 
+  multimedia\_tbs 
+  \\ \hline
+  % row 7
+  MUSICA & 
+  multimedia\_tbs 
+  \\ \hline
+  % row 8
+  VIDEO & 
+  multimedia\_tbs 
+  \\ \hline
+
   \end{longtable}
 }
 
+\newpage
 
 \subsection{Asignación de tablespace para índices de cada módulo}
 
