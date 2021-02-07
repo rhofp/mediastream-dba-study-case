@@ -1,0 +1,173 @@
+= Tema 5
+Creado por Rodrigo Francisco <rhodfra@gmail.com>
+Version 1.0, 10.11.2020
+:description: Tema 05 BDA
+:keywords: procesos
+:sectnums: 
+// Configuracion de la tabla de contenidos
+:toc: 
+:toc-placement!:
+:toclevels: 4                                          
+:toc-title: Contenido
+
+// Ruta base de las imagenes
+:imagesdir: ./README.assets/ 
+
+// Resaltar sintaxis
+:source-highlighter: pygments
+
+// Iconos para entorno local
+ifndef::env-github[:icons: font]
+
+// Iconos para entorno github
+ifdef::env-github[]
+:caution-caption: :fire:
+:important-caption: :exclamation:
+:note-caption: :paperclip:
+:tip-caption: :bulb:
+:warning-caption: :warning:
+endif::[]
+
+Administración de las estructuras lógicas de almacenamiento
+
+toc::[]
+
+* Los procesos de BD
+** Server Processes
+** Procesos de background
+* Demonios (Daemons) /Application Porcesses
+** Un ejemplo es el listener
+
+=== Estructuras lógicas de almacenamiento
+
+En las extensiones, cada bloque de datos reservado debe tener el mismo tamaño.
+Los datos de una tabla pueden estar en distintos datafiles.
+
+Un registro puede estar formado por n piezas (row piece), generalmente por cada
+registro de la tabla existe un bloque de datos. Si no cabe es posible ponerlos
+en varios bloques pero el rendimiento se verá afectado.
+
+Un bloque de datos oracle puede estar formado por varios bloques del sistema
+operativo. 
+
+
+.Formato de un bloque de datos
+* Block Header -> dirección de disco, tipo de segmento, información de las
+  transacciones
+* Tabla directory -> Contiene metadatos de las tablas
+* Row directory -> Lista de registros de cada bloque 
+
+.Formato de registros
+* Un registro esta formado por un conjunto de rowpieces (típicamente es de una
+  pieza)
+* Cada registro tiene 
+** Row header -> Número de columnas
+** Column data -> Se gudar si la longitud de un datos es variable
+** RowIDs -> Cada de 18 caracteres
+*** OOOOO -> Indica el segmento de datos
+*** FFF -> En que datafiles se encuentra
+*** BBBBBB -> En que bloque se encuentra
+*** RRR -> Número de registro en el bloque
+
+
+=== Administración del espacio en bloque de datos
+
+Generalmente se administra de forma automática (Automatic Segment Space
+Management).
+
+==== Porcentaje de espacio libre en bloque de datos
+
+Hay porcentaje de bloque de datos que se reserva para mantener datos, estos 
+es útil para las actualizaciones del lado del usuario. Nos permite que los datos
+crezcan en el mismo bloque y así optimizar.
+
+Generalmente este porcentaje se calcula automáticamente, pero hay froma de
+cambiarlo de manera manual.
+
+
+[source,sh]
+----
+create table test(id number) pctfree;
+----
+
+.Instrucciones que incrementan el espacio libre
+* delete
+* update
+* insert -> Pueden jacer uso de compresión de datos
+
+Esto es útil en base de datos de tipo OLAP
+
+
+==== Optimización al defragmentar el bloque
+
+El manejador deteca automáticamente cuando tiene que mover los datos para que 
+todo el espacio libre quede juntos.
+
+
+==== Migración de registros 
+
+Si un registro empieza a crecer y ya no cabe en un bloque de datos se migra a 
+otro bloque pero el row id y el puntero se mantiene.
+
+Por eso se debe cuidar el parámetro pctfree.
+
+
+=== Index Blocks
+
+Los indices se guardan de la misma forma que los registros sin embargo, se
+consideran 3 tipos de bloques: 
+
+* Bloques para el nodo raíz (root block)
+* Bloques para nodos intermedios (branch block)
+* Bloques para las hojas del árbol (leaf block)
+
+En los indices no ocurre una defragmentación automática, tenemos que ejecutar 
+
+[source,sh]
+----
+alter index <nombre> rebuild
+----
+
+=== Extensiones
+
+En la primera inserción a la tabla se hace la reserva de espacio en disco. Lo
+que hace es crear nuevas extensiones.
+
+Las extensiones pueden estar en distintos datafiles para evitar contensión.
+
+==== ¿Qué pasa cuando los datos se mueven?
+
+Las extensiones se liberan cuando ocurren
+
+* Sentencias drop sobre el objeto
+* Sentencias truncate sobre la tabla
+** No sucede lo mismo con delete from T1
+** Con truncate se borran las extensiones. (Es como si no pasará por la papelera
+  de reciclaje)
+* Si se hace una defragmentación de extensiones vamos a poder optimizar la 
+  ejecución de un _table access full_
+
+
+Cuando la tabla tiene más de un elemento, por ejemplo, indices, blobs.
+Por ejemplo, una tabla con pk y blobs tendría 4 segmentos
+
+Se puede particionar tablas e incluso indices.
+
+
+=== Segmentos temporales
+
+Es un espacio en disco que se necesita para hacer operaciones de manera temporal
+y poerteriormente se elimina. Hacer cálculos, ordenar, crear tablas hash
+
+=== Segmentos UNDO
+
+Sirve para implementar rollbacks de una transacciones.
+Nos ayuda a implementar la propiedad ACID de las BDs.
+
+También se pueden realizar operaciones relacionadas con la funcionalidad
+flashback.
+* Se puede hacer _rollback_ a pesar de haber hecho commit.
+
+Administracion del espacio empleando segmentos
+
+El primer bloque creado se le llamada *bitmap block* 
