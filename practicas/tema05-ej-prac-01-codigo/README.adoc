@@ -1,0 +1,8 @@
+= BDA
+
+== Dudas
+
+=== Tema 05 práctica 01
+
+* SESSIONIS VS SID
+* En 1.5, inciso D se debe hacer un join con $session y con sys_context?

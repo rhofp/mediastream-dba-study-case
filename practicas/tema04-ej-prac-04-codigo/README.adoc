@@ -1,0 +1,35 @@
+= Apache JMeter
+
+== JDBC connection configuration
+
+* Name: rodrigo0403@RFPBDA2
+* Pool: rodrigo0402JDBC
+
+=== Database connection configuration
+* Database URL: jdbc:oracle:thin:@pc-rfp.fi.unam:1521:rfpbda2
+* JDBC Driver class: oracle.jdbc.driver.OracleDriver
+* Username: rodrigo0403
+* Password: rodrigo
+
+**Consulta aleatoria**
+[source,SQL]
+----
+select sum(length(r_varchar)) from t01_random_data where id = sys.dbms_random.value(?,?)
+----
+
+
+
+== Repuestas
+
+=== C1
+
+* ¿Cuánto tiempo tardó en ejecutar el procedimiento que simula una carga máxima? 
+Elapsed: 00:00:00.15
+
+=== 1.5.1 Calcular sga_target
+
+El valor fue de 404 M
+
+=== 1.5.1 Calcular sga_target
+
+El valor fue de 404 M (403.999817) o 423624512 bytes

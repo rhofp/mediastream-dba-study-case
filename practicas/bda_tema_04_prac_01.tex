@@ -135,14 +135,15 @@ de las diferentes áreas de la SGA.
 \textbf{¿Qué posibles tipos de operaciones se le pueden aplicar 
   a los componentes de la SGA? Describir brevemente cada tipo.}
 
-% TODO:- Responder pregunta
+Las operaciones que se pueden aplicar a la memoria son las siguientes:
 \begin{itemize}
-    \item \textbf{STATIC}
-    \item \textbf{INITIALZING}
-    \item \textbf{DISABLED}
-    \item \textbf{GROW}
-    \item \textbf{SHRINK}
-    \item \textbf{SHRINK\_CANCEL}
+    \item \textbf{STATIC}: La memoria no esta en uso
+    \item \textbf{INITIALZING}: La memoria esta un uso
+    \item \textbf{DISABLED}: La memoria ha sido deshabilitada
+    \item \textbf{GROW}: Se expandió la memoria designada
+    \item \textbf{SHRINK}: Se encogió la memoria designada
+    \item \textbf{SHRINK\_CANCEL}: Se canceló el proceso de encogimiento de la
+    memoria designada
 \end{itemize}
 
 \section*{C3. Mostrar el contenido de cada una de las tablas t0* creadas en 

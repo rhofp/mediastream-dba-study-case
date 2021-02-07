@@ -1,0 +1,316 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="5.0" jmeter="5.4">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="RFPBDA2-EP-T04-02-PLAN-02" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.tearDown_on_shutdown">true</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Monitor PGA" enabled="true">
+        <stringProp name="TestPlan.comments">Grupo de hilos encargado de monitorear la PGA del usuario</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">240</stringProp>
+        <stringProp name="ThreadGroup.delay">1</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">true</boolProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="sys@rfpbda2" enabled="true">
+          <stringProp name="TestPlan.comments">Conexión como usuario SYS</stringProp>
+          <stringProp name="dataSource">sysJDBC</stringProp>
+          <stringProp name="poolMax">2</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <boolProp name="preinit">false</boolProp>
+          <stringProp name="initQuery"></stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="dbUrl">jdbc:oracle:thin:@pc-rfp.fi.unam:1521:rfpbda2</stringProp>
+          <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+          <stringProp name="username">sys as sysdba</stringProp>
+          <stringProp name="password">system2</stringProp>
+          <stringProp name="connectionProperties"></stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="monitorPGA-Q1" enabled="true">
+          <stringProp name="TestPlan.comments">Consulta empleada para monitorear el uso de la PGA</stringProp>
+          <stringProp name="dataSource">sysJDBC</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="query">insert into rodrigo0403.t05_hist_pga_stats(
+	sample_date,max_pga_mb, pga_target_parameter_mb,
+	pga_total_actual_mb, pga_in_use_actual_mb,
+	pga_free_memory_mb, pga_process_count,
+	pga_in_use_workareas_auto
+) select
+	(sysdate),
+    (                                     	 		 		  
+    select value/1048576                                                 
+      from v$pgastat                                                          
+      where name=&apos;maximum PGA allocated&apos;                                      
+    ) max_pga_mb,                                                             
+    (                                                                         
+      select value/1048576                                                    
+      from v$pgastat                                                          
+      where name=&apos;aggregate PGA target parameter&apos;                             
+    ) pga_target_parameter_mb,                                                
+    (                                                                         
+      select value/1048576                                                    
+      from v$pgastat                                                          
+      where name=&apos;total PGA allocated&apos;                                        
+    ) pga_total_actual_mb,                                                    
+    (                                                                         
+      select value/1048576                                                    
+      from v$pgastat                                                          
+      where name=&apos;total PGA inuse&apos;                                            
+    ) pga_in_use_actual_mb,                                                   
+    (                                                                         
+      select value/1048576                                                    
+      from v$pgastat                                                          
+      where name=&apos;total freeable PGA memory&apos;                                  
+    ) pga_free_memory_mb,                                                     
+    (                                                                         
+      select value                                                            
+      from v$pgastat                                                          
+      where name=&apos;process count&apos;                                              
+    ) pga_process_count,                                                      
+    (                                                                         
+      select value/1048576                                                    
+      from v$pgastat                                                          
+      where name=&apos;total PGA used for auto workareas&apos;                          
+    ) pga_in_use_workareas_auto                                               
+  from dual </stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="monitorPGA-Q2" enabled="true">
+          <stringProp name="TestPlan.comments">Consulta empleada para monitorear el uso de la PGA</stringProp>
+          <stringProp name="dataSource">sysJDBC</stringProp>
+          <stringProp name="queryType">Update Statement</stringProp>
+          <stringProp name="query">insert into rodrigo0403.t06_hist_pga_process(
+	sample_date,process_type,total_username,
+	total_pga_allocated_mb,total_pga_used_mb
+) 
+  select     
+  sysdate,                     
+  (                                                               select 		  &apos;bkg-processs&apos; from dual           
+  ) process_type,                 
+  (                               
+    select count(*)               
+    from  v$process               
+    where pname is not null                     
+  ) total_process,                   
+  (                                     
+    select trunc(sum(pga_alloc_mem)/(1024*1024),2)    
+    from v$process                      
+    where pname is not null             
+  ) total_pga_allocated_mb,                                   
+  (                                                           
+    select trunc(sum(pga_used_mem)/(1024*1024),2)             
+    from v$process                                            
+    where pname is not null                                   
+  ) total_pga_used_mb                                         
+  from dual                                                   
+  union                                                       
+  select   
+  sysdate,                                                   
+  (                                                           
+    select &apos;other-processs&apos; from dual                         
+  ) process_type,                                             
+  (                                                               select count(*)                                           
+    from  v$process                                           
+    where pname is null                                       
+  ) total_process,                                            
+  (                                                           
+    select trunc(sum(pga_alloc_mem)/(1024*1024),2)            
+    from v$process                                            
+    where pname is null                                       
+  ) total_pga_allocated_mb,                                   
+  (                                                           
+    select trunc(sum(pga_used_mem)/(1024*1024),2)             
+    from v$process                                            
+    where pname is null                                       
+  ) total_pga_used_mb                                         
+  from dual </stringProp>
+          <stringProp name="queryArguments"></stringProp>
+          <stringProp name="queryArgumentsTypes"></stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Pausa1S" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">1000</stringProp>
+        </TestAction>
+        <hashTree>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+            <stringProp name="RandomTimer.range">100</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Consultas aleatorias" enabled="true">
+        <stringProp name="TestPlan.comments">50 hilos realizarán consultas aleatorias durante 3 minutos para generar carga.</stringProp>
+        <stringProp name="ThreadGroup.on_sample_error">stoptest</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">50</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">5</stringProp>
+        <boolProp name="ThreadGroup.scheduler">true</boolProp>
+        <stringProp name="ThreadGroup.duration">180</stringProp>
+        <stringProp name="ThreadGroup.delay">60</stringProp>
+        <boolProp name="ThreadGroup.same_user_on_next_iteration">false</boolProp>
+        <boolProp name="ThreadGroup.delayedStart">true</boolProp>
+      </ThreadGroup>
+      <hashTree>
+        <JDBCDataSource guiclass="TestBeanGUI" testclass="JDBCDataSource" testname="rodrigo0403@rfpbda2" enabled="true">
+          <stringProp name="dataSource">rodrigo0403JDBC</stringProp>
+          <stringProp name="poolMax">0</stringProp>
+          <stringProp name="timeout">10000</stringProp>
+          <stringProp name="trimInterval">60000</stringProp>
+          <boolProp name="autocommit">true</boolProp>
+          <stringProp name="transactionIsolation">DEFAULT</stringProp>
+          <boolProp name="preinit">false</boolProp>
+          <stringProp name="initQuery"></stringProp>
+          <boolProp name="keepAlive">true</boolProp>
+          <stringProp name="connectionAge">5000</stringProp>
+          <stringProp name="checkQuery"></stringProp>
+          <stringProp name="dbUrl">jdbc:oracle:thin:@pc-rfp.fi.unam:1521:rfpbda2</stringProp>
+          <stringProp name="driver">oracle.jdbc.driver.OracleDriver</stringProp>
+          <stringProp name="username">rodrigo0403</stringProp>
+          <stringProp name="password">rodrigo</stringProp>
+          <stringProp name="connectionProperties"></stringProp>
+        </JDBCDataSource>
+        <hashTree/>
+        <JDBCSampler guiclass="TestBeanGUI" testclass="JDBCSampler" testname="ConsultaAleatoria" enabled="true">
+          <stringProp name="TestPlan.comments">50 usuarios ejecutarán esta sentencia durante 3 min.</stringProp>
+          <stringProp name="dataSource">rodrigo0403JDBC</stringProp>
+          <stringProp name="queryType">Prepared Select Statement</stringProp>
+          <stringProp name="query">select sum(length(r_varchar)) from rodrigo0402.t01_random_data where id = sys.dbms_random.value(?,?)</stringProp>
+          <stringProp name="queryArguments">1,80000</stringProp>
+          <stringProp name="queryArgumentsTypes">integer,integer</stringProp>
+          <stringProp name="variableNames"></stringProp>
+          <stringProp name="resultVariable"></stringProp>
+          <stringProp name="queryTimeout"></stringProp>
+          <stringProp name="resultSetMaxRows"></stringProp>
+          <stringProp name="resultSetHandler">Store as String</stringProp>
+        </JDBCSampler>
+        <hashTree/>
+        <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Pausa1S" enabled="true">
+          <intProp name="ActionProcessor.action">1</intProp>
+          <intProp name="ActionProcessor.target">0</intProp>
+          <stringProp name="ActionProcessor.duration">1000</stringProp>
+        </TestAction>
+        <hashTree>
+          <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
+            <stringProp name="ConstantTimer.delay">1000</stringProp>
+            <stringProp name="RandomTimer.range">100</stringProp>
+          </UniformRandomTimer>
+          <hashTree/>
+        </hashTree>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <sentBytes>true</sentBytes>
+              <url>true</url>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+              <connectTime>true</connectTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
