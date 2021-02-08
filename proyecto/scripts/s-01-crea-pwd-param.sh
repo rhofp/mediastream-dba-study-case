@@ -6,6 +6,31 @@
 # Se puede configurar como fija
 export ORACLE_SID=frpaproy
 
+# ^^ transforma la cadena a mayusculas
+BASEDIR="/u01/app/oracle/oradata/${ORACLE_SID^^}"
+
+echo "Directorio base: ${BASEDIR}"
+read -p "Continuar? (y/n): "
+if [[ $REPLY = 'n' ]]; then exit; fi
+
+# Crear directorios
+mkdir -p ${BASEDIR}/{disk_1,disk_2}
+
+# Cambiando dueno y gpo de carpetas
+chown -R oracle:oinstall /u01/app/oracle/oradata/${ORACLE_SID^^}
+
+# Cambiando mascara de permisos
+chmod -R 754 /u01/app/oracle/oradata/${ORACLE_SID^^}
+
+ls -l ${BASEDIR}
+
+# Checkpoint para ver el status 
+# y analizar manualmente si se debe continuar
+echo "Ahora se creara el archivo de passwords "
+echo "en ${ORACLE_HOME}/dbs/init${ORACLE_SID}.ora"
+read -p "Continuar? (y/n): "
+if [[ $REPLY = 'n' ]]; then exit; fi
+
 # Archivo de passwords para la instancia frpaproy
 echo "Agregar como contrasena hola1234*"
 orapwd file="${ORACLE_HOME}/dbs/orapw${ORACLE_SID}" force=y sys=password
@@ -28,9 +53,8 @@ if [ $? -ne 0 ]; then
   exit 100
 fi  
 
-# Notar que ${ORACLE_SID^^} transforma la cadena a mayusculas
-echo "db_name=${ORACLE_SID}" >> "${paramFile}" 
-echo "control_files=(/u01/app/oracle/oradata/${ORACLE_SID^^}/control01.ctl,
-  /u01/app/oracle/oradata/${ORACLE_SID^^}/disk_1/control02.ctl,
-  /u01/app/oracle/oradata/${ORACLE_SID^^}/disk_2/control03.ctl )" >> "${paramFile}"
+echo "db_name=${ORACLE_SID}" > "${paramFile}" 
+echo "control_files=(${BASEDIR}/control01.ctl,
+  ${BASEDIR}/disk_1/control02.ctl,
+  ${BASEDIR}/disk_2/control03.ctl )" >> "${paramFile}"
 echo "memory_target=768M" >> "${paramFile}"
