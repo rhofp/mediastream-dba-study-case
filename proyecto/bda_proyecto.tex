@@ -232,11 +232,33 @@
   %
   % row 1
   Número y ubicación de los archivos de control & 
-  % 
+  \parbox[t][][t]{\linewidth}{
+    \texttt{control\_files = ( \\
+      /u01/app/oracle/oradata/FRPAPROY/control01.ctl, \\
+      /u01/app/oracle/oradata/FRPAPROY/disk\_1/control02.ctl, \\
+      /u01/app/oracle/oradata/FRPAPROY/disk\_2/control03.ctl \\
+    )\\ }
+  }% 
   \\ \hline
   % row 2
   Propuesta de grupos de REDO & 
-  % 
+  \parbox[t][][t]{\linewidth}{
+    \small
+    \texttt{%
+    group 1 (
+      `/u01/app/oracle/oradata/FRPAPROY/redo01a.log',
+      `/u01/app/oracle/oradata/FRPAPROY/disk\_1/redo01b.log',
+      `/u01/app/oracle/oradata/FRPAPROY/disk\_2/redo01c.log') \\
+    group 2 (
+      `/u01/app/oracle/oradata/FRPAPROY/redo02a.log',
+      `/u01/app/oracle/oradata/FRPAPROY/disk\_1/redo02b.log',
+      `/u01/app/oracle/oradata/FRPAPROY/disk\_2/redo02c.log'),\\
+    group 3 (
+      `/u01/app/oracle/oradata/FRPAPROY/redo03a.log',
+      `/u01/app/oracle/oradata/FRPAPROY/disk\_1/redo03b.log',
+      `/u01/app/oracle/oradata/FRPAPROY/disk\_2/redo03c.log')\\
+    }
+  }
   \\ \hline
   % row 3
   Propuesta de juego de caracteres & 
@@ -248,11 +270,18 @@
   \\ \hline
   % row 5
   Lista de parámetros que serán configurados al crear la base de datos & 
-  % 
+   \parbox[t][][t]{\linewidth}{
+      \texttt{db\_name = frpaproy}\\
+      \texttt{control\_files = ( \\
+        /u01/app/oracle/oradata/FRPAPROY/control01.ctl, \\
+        /u01/app/oracle/oradata/FRPAPROY/disk\_1/control02.ctl, \\
+        /u01/app/oracle/oradata/FRPAPROY/disk\_2/control03.ctl \\
+      )\\ }
+    } % 
   \\ \hline
   % row 6
   Archivo de passwords & 
-  % 
+  \texttt{\$ORACLE\_HOME/dbs/orapwfrpaproy.ora}% 
   \\ \hline
   \end{longtable}
 }
@@ -276,7 +305,7 @@
   %%%%% End: Table header 
   %
   % row 1
-  usuarios &
+  users &
   En este módulo se almacena la información de los usuarios, sus planes y su
   tarjeta para controlar toda la parte financiera - administrativa de
   mediaStream. Además, este módulo se almacena la tabla \textit{streaming} lo
@@ -313,47 +342,47 @@
   %
   % row 9
   CARGO\_TARJETA & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 10
   DISPOSITIVO\_TARJETA & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 11
   HISTORICO\_PLAN\_SUSCRIPTOR & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 12
   PLAN\_SUSCRIPTOR & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 13
   PLAYLIST & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 14
   PLAYLIST\_CONTENIDO & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 15
   PLAYLIST\_USUARIO\_AUTORIZADO & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 16
   STREAMING & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 17
   TARJETA & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 18
   USUARIO & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 19
   USUARIO\_ASOCIADO & 
-  usuarios% 
+  users% 
   \\ \hline
   % row 1
   AUTOR & 
@@ -526,7 +555,7 @@
   \\ \hline
   % row n
   SECCIONES\_MULTIMEDIA &
-  SECCIONES\_MULTIMEDIA\_MULTIMEDIA\_ID &
+  SECCIONES\_MULTIMEDIA \_MULTIMEDIA\_ID\_FK &
   Referencia &
   Optimizar el join entre la tabla padre y la  tabla hija% 
   \\ \hline
@@ -621,7 +650,7 @@
 \includegraphics[width=0.95\textwidth]{media-stream-modulo-01}
 \end{center}
 
-\textbf{Módulo 02:} Streaming - Usuarios (\textit{usuarios})
+\textbf{Módulo 02:} Streaming - Usuarios (\textit{users})
 
 \begin{center}
 \includegraphics[width=0.95\textwidth]{media-stream-modulo-01}
@@ -648,7 +677,7 @@
   %%%%% End: Table header 
   %
   % row 1
-  usuarios\_tbs & 
+  users\_tbs & 
   % 
   \\ \hline
   % row 2
@@ -677,7 +706,7 @@
   %%%%% End: Table header 
   %
   % row 1
-  usuarios\_tbs & 
+  users\_tbs & 
   Almacenar todos los datos referidos a los usuarios (tarjeta, plan de
   suscripción, playlist, pagos y dispositivos) así como también la información
   del consumo de contenido por streaming & 
@@ -688,7 +717,7 @@
   Almacenar los datos referidos al contenido multimedia de mediaStream. Este
   módulo permite almacenar datos BLOB y CLOB de manera independiente a los
   datos del usuario. &
-  permanente y bigfile
+  Permanente y bigfile
   \\ \hline
   \end{longtable}
 }
@@ -710,7 +739,7 @@
   %%%%% End: Table header 
   %
   % row 1
-  usuarios\_tbs & 
+  users\_tbs & 
   % 
   \\ \hline
   % row 2
@@ -738,47 +767,47 @@
   %
   % row 9
   CARGO\_TARJETA & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 10
   DISPOSITIVO\_TARJETA & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 11
   HISTORICO\_PLAN\_SUSCRIPTOR & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 12
   PLAN\_SUSCRIPTOR & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 13
   PLAYLIST & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 14
   PLAYLIST\_CONTENIDO & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 15
   PLAYLIST\_USUARIO\_AUTORIZADO & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 16
   STREAMING & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 17
   TARJETA & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 18
   USUARIO & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 19
   USUARIO\_ASOCIADO & 
-  usuarios\_tbs% 
+  users\_tbs% 
   \\ \hline
   % row 1
   AUTOR & 
@@ -1059,11 +1088,11 @@
   %%%%% End: Table header 
   %
   % row 1
-  Hola &
-  Hola &
-  Hola &
-  Hola &
-  Hola% 
+  contenido &
+  &
+  SECCIONES\_MULTIMEDIA&
+  &
+  % 
   \\ \hline
   \end{longtable}
 }
