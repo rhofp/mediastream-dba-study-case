@@ -240,11 +240,11 @@
   \\ \hline
   % row 3
   Propuesta de juego de caracteres & 
-  % 
+  AL32UTF8% 
   \\ \hline
   % row 4
   Tamaño de bloque de datos & 
-  % 
+  512 K% 
   \\ \hline
   % row 5
   Lista de parámetros que serán configurados al crear la base de datos & 
@@ -398,9 +398,9 @@
                                 % enclose table inside brackets)
   \begin{longtable}{
     |p{0.21\linewidth}
-    |p{0.21\linewidth}
-    |p{0.2\linewidth}
-    |p{0.21\linewidth}|}
+    |p{0.37\linewidth}
+    |p{0.09\linewidth}
+    |p{0.15\linewidth}|}
   \hline
   %%%%% Start: Table header 
   \textbf{Nombre de la tabla} & 
@@ -410,11 +410,197 @@
   \\ \hline
   %%%%% End: Table header 
   %
-  % row 1
-  Hola &
-  Hola &
-  Hola &
-  Hola% 
+  % row n
+  AUTOR &
+  AUTOR\_EMAIL\_UK&
+  Único &
+  El email de cada autor debe ser único
+  \\ \hline
+  % row n
+  AUTOR\_MULTIMEDIA &
+  AUTOR\_MULTIMEDIA\_AUTOR\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  AUTOR\_MULTIMEDIA &
+  AUTOR\_MULTIMEDIA\_MULTIMEDIA\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  CARGO\_TARJETA &
+  CARGO\_TARJETA\_TARJETA\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  CARGO\_TARJETA &
+  CARGO\_TARJETA\_FOLIO\_UK &
+  Único &
+  El folio no debe repetirse
+  \\ \hline
+  % row n
+  COMENTARIO &
+  COMENTARIO\_MULTIMEDIA\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  COMENTARIO &
+  COMENTARIO\_USUARIO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  COMENTARIO &
+  COMENTARIO\_USUARIO\_RESPUESTA\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  DISPOSITIVO\_USUARIO &
+  DISPOSITIVO\_USUARIO\_USUARIO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  HISTORICO\_PLAN \_SUSCRIPTOR &
+  HIST\_PLAN\_SUSCRIPTOR \_PLAN\_SUSCRIPTOR\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  MULTIMEDIA\_GENERO &
+  MULTIMEDIA\_GENERO\_CONTENIDO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  MULTIMEDIA\_GENERO &
+  MULTIMEDIA\_GENERO\_CONTENIDO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  PLAN\_SUSCRIPTOR &
+  PLAN\_SUSCRIPTOR\_CLAVE\_UK &
+  Único &
+  La clave de cada plan de suscripción no debe repetirse
+  \\ \hline
+  % row n
+  PLAYLIST\_CONTENIDO &
+  PLAYLIST\_CONTENIDO\_MULTIMEDIA\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  PLAYLIST\_CONTENIDO &
+  PLAYLIST\_CONTENIDO\_PLAYLIST\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  PLAYLIST\_CONTENIDO &
+  PLAYLIST\_CONTENIDO \_PLAYLIST\_MULTIMEDIA\_IX &
+  Compuesto &
+  Permite agilizar el join entre la playlist y el contenido multimedia
+  \\ \hline
+  % row n
+  PLAYLIST\_USUARIO \_AUTORIZADO &
+  PLAYLIST\_USU\_AUT\_PLAYLIST\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  PLAYLIST\_USUARIO \_AUTORIZADO &
+  PLAYLIST\_USU\_AUT \_USUARIO\_ASOCIADO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  PLAYLIST &
+  PLAYLIST\_USUARIO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  SECCIONES\_MULTIMEDIA &
+  SECCIONES\_MULTIMEDIA\_MULTIMEDIA\_ID &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  STREAMING &
+  STREAMING\_DISPOSITIVO\_USUARIO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  STREAMING &
+  STREAMING\_MULTIMEDIA\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  STREAMING &
+  STREAMING\_MUTIMEDIA\_USUARIO\_IX &
+  Compuesto &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  STREAMING &
+  STREAMING\_USUARIO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  TARJETA &
+  TARJETA\_USUARIO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  TARJETA &
+  TARJETA\_NUM\_TARJETA\_UK &
+  Único &
+  El número de tarjeta debe ser único% 
+  \\ \hline
+  % row n
+  USUARIO\_ASOCIADO &
+  USUARIO\_ASOCIADO \_USUARIO\_ANEXO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  USUARIO\_ASOCIADO &
+  USUARIO\_ASOCIADO\_USUARIO\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  USUARIO &
+  USUARIO\_PLAN\_SUSCRIPTOR\_ID\_FK &
+  Referencia &
+  Optimizar el join entre la tabla padre y la  tabla hija% 
+  \\ \hline
+  % row n
+  USUARIO &
+  USUARIO\_USERNAME\_UK &
+  Único &
+  El nombre de usuario es un identificador único% 
+  \\ \hline
+  % row n
+  USUARIO &
+  USUARIO\_EMAIL\_UK &
+  Único &
+  El email de usuario es un identificador único% 
+  \\ \hline
+  % row n
+  USUARIO &
+  USUARIO\_RFC\_UK &
+  Único &
+  El RFC de usuario es un identificador único% 
   \\ \hline
   \end{longtable}
 }
@@ -696,37 +882,37 @@
   \end{longtable}
 }
 
-\section{Simulación de carga diaria}
+%\section{Simulación de carga diaria}
 
-{
-  \setlength\tabcolsep{3.5mm}
-  \def\arraystretch{2}          % Do not define globally (for that reason we
-                                % enclose table inside brackets)
-  \begin{longtable}{
-    |C{0.16\linewidth}
-    |C{0.16\linewidth}
-    |C{0.16\linewidth}
-    |C{0.16\linewidth}
-    |C{0.15\linewidth}|}
-  \hline
-  %%%%% Start: Table header 
-  \textbf{Fecha y hora} & 
-    \textbf{Datos REDO producidos (MB)} & 
-  \textbf{Fecha de respaldo} & 
-  \textbf{Tipo de backup} & 
-  \textbf{Espacio requerido por el backup}
-  \\ \hline
-  %%%%% End: Table header 
-  %
-  % row 1
-  Hola &
-  Hola &
-  Hola &
-  Hola &
-  Hola% 
-  \\ \hline
-  \end{longtable}
-}
+%{
+  %\setlength\tabcolsep{3.5mm}
+  %\def\arraystretch{2}          % Do not define globally (for that reason we
+                                %% enclose table inside brackets)
+  %\begin{longtable}{
+    %|C{0.16\linewidth}
+    %|C{0.16\linewidth}
+    %|C{0.16\linewidth}
+    %|C{0.16\linewidth}
+    %|C{0.15\linewidth}|}
+  %\hline
+  %%%%%% Start: Table header 
+  %\textbf{Fecha y hora} & 
+    %\textbf{Datos REDO producidos (MB)} & 
+  %\textbf{Fecha de respaldo} & 
+  %\textbf{Tipo de backup} & 
+  %\textbf{Espacio requerido por el backup}
+  %\\ \hline
+  %%%%%% End: Table header 
+  %%
+  %% row 1
+  %Hola &
+  %Hola &
+  %Hola &
+  %Hola &
+  %Hola% 
+  %\\ \hline
+  %\end{longtable}
+%}
 
 
 
