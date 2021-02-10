@@ -3,8 +3,12 @@
 # @Fecha creacion:  05/02/2021
 # @Descripcion:     Configuraciones previas la instalacion de la BD
 
+# NOTA: EJECUTAR COMO USUARIO ORACLE
+
 # Se puede configurar como fija
 export ORACLE_SID=frpaproy
+
+ORACLE_HOME=/u01/app/oracle/product/18.0.0/dbhome_1
 
 # ^^ transforma la cadena a mayusculas
 BASEDIR="/u01/app/oracle/oradata/${ORACLE_SID^^}"
@@ -17,22 +21,20 @@ if [[ $REPLY = 'n' ]]; then exit; fi
 mkdir -p ${BASEDIR}/{disk_1,disk_2}
 
 # Cambiando dueno y gpo de carpetas
-chown -R oracle:oinstall /u01/app/oracle/oradata/${ORACLE_SID^^}
+chown -R oracle:oinstall ${BASEDIR}
 
 # Cambiando mascara de permisos
-chmod -R 754 /u01/app/oracle/oradata/${ORACLE_SID^^}
+chmod -R 754 ${BASEDIR}
 
 ls -l ${BASEDIR}
 
-# Checkpoint para ver el status 
-# y analizar manualmente si se debe continuar
-echo "Ahora se creara el archivo de passwords "
-echo "en ${ORACLE_HOME}/dbs/init${ORACLE_SID}.ora"
+# Archivo de passwords para la instancia frpaproy
+echo "Ahora se creara el archivo de passwords:"
+echo "${ORACLE_HOME}/dbs/orapw${ORACLE_SID}"
+echo "Agregar como contrasena hola1234*"
 read -p "Continuar? (y/n): "
 if [[ $REPLY = 'n' ]]; then exit; fi
 
-# Archivo de passwords para la instancia frpaproy
-echo "Agregar como contrasena hola1234*"
 orapwd file="${ORACLE_HOME}/dbs/orapw${ORACLE_SID}" force=y sys=password
 
 # Verificando existenca archivo de parametros
@@ -41,6 +43,14 @@ orapwd file="${ORACLE_HOME}/dbs/orapw${ORACLE_SID}" force=y sys=password
 if [ -f "${ORACLE_HOME}/dbs/init${ORACLE_SID}.ora" ]; then
   rm "${ORACLE_HOME}/dbs/init${ORACLE_SID}.ora"
 fi
+
+# Checkpoint para ver el status 
+# y analizar manualmente si se debe continuar
+echo "Ahora se creara el archivo de control"
+
+echo "en ${ORACLE_HOME}/dbs/init${ORACLE_SID}.ora"
+read -p "Continuar? (y/n): "
+if [[ $REPLY = 'n' ]]; then exit; fi
 
 # Creando el archivo de parametros
 touch "${ORACLE_HOME}/dbs/init${ORACLE_SID}.ora"
