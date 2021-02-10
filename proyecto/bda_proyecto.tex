@@ -874,192 +874,224 @@
   Único &
   AUTOR &
   EMAIL&
+  indexes\_tbs
   \\ \hline
   % row n
   AUTOR\_MULTIMEDIA \_AUTOR\_ID\_FK &
   Referencia &
   AUTOR\_MULTIMEDIA &
   AUTOR\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   AUTOR\_MULTIMEDIA \_MULTIMEDIA\_ID\_FK &
   Referencia &
   AUTOR\_MULTIMEDIA &
   MULTIMEDIA\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   CARGO\_TARJETA \_TARJETA\_ID\_FK &
   Referencia &
   CARGO\_TARJETA &
   TARJETA\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   CARGO\_TARJETA \_FOLIO\_UK &
   Único &
   CARGO\_TARJETA &
   FOLIO&
+  indexes\_tbs
   \\ \hline
   % row n
   COMENTARIO \_MULTIMEDIA\_ID\_FK &
   Referencia &
   COMENTARIO &
   MULTIMEDIA\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   COMENTARIO \_USUARIO\_ID\_FK &
   Referencia &
   COMENTARIO &
   USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   COMENTARIO\_USUARIO \_RESPUESTA\_ID\_FK &
   Referencia &
   COMENTARIO &
   USUARIO\_RESPUESTA\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   DISPOSITIVO\_USUARIO \_USUARIO\_ID\_FK &
   Referencia &
   DISPOSITIVO\_USUARIO &
   USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   HIST\_PLAN \_SUSCRIPTOR\_PLAN \_SUSCRIPTOR\_ID\_FK &
   Referencia &
   HISTORICO\_PLAN \_SUSCRIPTOR &
   PLAN \_SUSCRIPTOR\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   MULTIMEDIA\_GENERO \_CONTENIDO\_ID\_FK &
   Referencia &
   MULTIMEDIA\_GENERO &
   CONTENIDO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   MULTIMEDIA\_GENERO \_CONTENIDO\_ID\_FK &
   Referencia &
   MULTIMEDIA\_GENERO &
   CONTENIDO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   PLAN\_SUSCRIPTOR \_CLAVE\_UK &
   Único &
   PLAN\_SUSCRIPTOR &
   CLAVE&
+  indexes\_tbs
   \\ \hline
   % row n
   PLAYLIST\_CONTENIDO \_MULTIMEDIA\_ID\_FK &
   Referencia &
   PLAYLIST\_CONTENIDO &
   MULTIMEDIA\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   PLAYLIST\_CONTENIDO \_PLAYLIST\_ID\_FK &
   Referencia &
   PLAYLIST\_CONTENIDO &
   PLAYLIST\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   PLAYLIST\_CONTENIDO \_PLAYLIST \_MULTIMEDIA\_IX &
   Compuesto &
   PLAYLIST\_CONTENIDO &
   PLAYLIST\_ID, MULTIMEDIA\_ID&
+  indexes\_tbs
   \\ \hline
   % row n
   PLAYLIST\_USU\_AUT \_PLAYLIST\_ID\_FK &
   Referencia &
   PLAYLIST\_USUARIO \_AUTORIZADO &
   PLAYLIST\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   PLAYLIST\_USU\_AUT \_USUARIO \_ASOCIADO\_ID\_FK &
   Referencia &
   PLAYLIST\_USUARIO \_AUTORIZADO &
   USUARIO \_ASOCIADO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   PLAYLIST\_USUARIO \_ID\_FK &
   Referencia &
   PLAYLIST &
   USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   SECCIONES\_MULTIMEDIA \_MULTIMEDIA\_ID &
   Referencia &
   SECCIONES\_MULTIMEDIA &
   MULTIMEDIA\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   STREAMING\_DISPOSITIVO \_USUARIO\_ID\_FK &
   Referencia &
   STREAMING &
   USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   STREAMING\_MULTIMEDIA \_MULTIMEDIA\_ID\_FK &
   Referencia &
   STREAMING &
   MULTIMEDIA\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   STREAMING\_MUTIMEDIA \_USUARIO\_IX &
   Compuesto &
   STREAMING &
   MULTIMEDIA\_ID, USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   STREAMING\_USUARIO\_ID\_FK &
   Referencia &
   STREAMING &
   USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   TARJETA\_USUARIO\_ID\_FK &
   Referencia &
   TARJETA &
   USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   TARJETA\_NUM\_TARJETA\_UK &
   Único &
   TARJETA &
   NUM\_TARJETA& 
+  indexes\_tbs
   \\ \hline
   % row n
   USUARIO\_ASOCIADO \_USUARIO\_ANEXO\_ID\_FK &
   Referencia &
   USUARIO\_ASOCIADO &
   USUARIO\_ANEXO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   USUARIO\_ASOCIADO \_USUARIO\_ID\_FK &
   Referencia &
   USUARIO\_ASOCIADO &
   USUARIO\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   USUARIO\_PLAN \_SUSCRIPTOR\_ID\_FK &
   Referencia &
   USUARIO &
   SUSCRIPTOR\_ID& 
+  indexes\_tbs
   \\ \hline
   % row n
   USUARIO\_USERNAME\_UK &
   Único &
   USUARIO &
   USERNAME& 
+  indexes\_tbs
   \\ \hline
   % row n
   USUARIO\_EMAIL\_UK &
   Único &
   USUARIO &
   EMAIL& 
+  indexes\_tbs
   \\ \hline
   % row n
   USUARIO\_RFC\_UK &
   Único &
   USUARIO &
   RFC& 
+  indexes\_tbs
   \\ \hline
  
   \end{longtable}
@@ -1082,17 +1114,17 @@
   \textbf{Nombre de la columna CLOB/BLOB} & 
   \textbf{Nombre de índice asociado a la columna CLOB/BLOB} & 
   \textbf{Nombre de la tabla} & 
-  \textbf{Nombre del tabla para la columna CLOB/BLOB} & 
+  \textbf{Nombre del tablespace para la columna CLOB/BLOB} & 
   \textbf{Nombre del tablespace para el índice de la columna CLOB/BLOB}
   \\ \hline
   %%%%% End: Table header 
   %
   % row 1
   contenido &
-  &
+  secciones\_multimedia \_contenido\_ix\_blob&
   SECCIONES\_MULTIMEDIA&
-  &
-  % 
+  multimedia\_tbs&
+  indexes\_tbs% 
   \\ \hline
   \end{longtable}
 }
