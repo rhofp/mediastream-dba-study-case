@@ -677,12 +677,24 @@
   %%%%% End: Table header 
   %
   % row 1
-  users\_tbs & 
-  % 
+  undotbs1 & 
+  \parbox[t][][t]{\linewidth}{
+    \texttt{%
+    undo tablespace undotbs1\\
+    datafile `/u01/app/oracle/oradata/frpaproy/undotbs01.dbf'\\
+    size 200m reuse autoextend on next 5120k maxsize unlimited;\\
+    }
+  }
   \\ \hline
   % row 2
-  multimedia\_tbs & 
-  % 
+  temptbs1 & 
+  \parbox[t][][t]{\linewidth}{
+    \texttt{%
+    default temporary tablespace tempts1\\
+    tempfile `/u01/app/oracle/oradata/frpaproy/temp01.dbf'\\
+    size 20m reuse autoextend on next 640k maxsize unlimited\\
+    }
+  }
   \\ \hline
   \end{longtable}
 }
@@ -1124,7 +1136,7 @@
   secciones\_multimedia \_contenido\_ix\_blob&
   SECCIONES\_MULTIMEDIA&
   multimedia\_tbs&
-  indexes\_tbs% 
+  contenido\_blob\_tbs% 
   \\ \hline
   \end{longtable}
 }
