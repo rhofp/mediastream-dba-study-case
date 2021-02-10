@@ -1,4 +1,12 @@
---
+-- @Autor:            Francisco Pablo Rodrigo
+-- @Fecha creacion:   04/02/2021
+-- @Descripcion:      Creacion de las tablas para mediaStream
+
+@s-04-mediastream-delete-tables.sql
+
+set serveroutput on
+whenever sqlerror exit
+
 -- ER/Studio 8.0 SQL Code Generation
 -- Company :      unam.fi
 -- Project :      media-stream-modelo.DM1
@@ -12,8 +20,10 @@
 -- LOWER CASE FOR THE USER MODIFIED VERSION (TABLESPACES)
 
 -- 
--- TABLE: AUTOR 
+Prompt TABLE: AUTOR 
 --
+
+connect admin_multimedia/admin_multimedia
 
 CREATE TABLE AUTOR(
     AUTOR_ID         NUMBER(10, 0)    NOT NULL,
@@ -23,14 +33,15 @@ CREATE TABLE AUTOR(
     EMAIL            VARCHAR2(80)     NOT NULL,
     GPO_ARTISTICO    VARCHAR2(40)     NOT NULL,
     CONSTRAINT AUTOR_PK PRIMARY KEY (AUTOR_ID)
-    tablespace indexes_tbs
+    using index (
+      create unique index autor_pk on autor(autor_id)
+      tablespace indexes_tbs
+    )
 ) tablespace multimedia_tbs
 ;
 
-
-
 -- 
--- TABLE: GENERO_CONTENIDO 
+Prompt TABLE: GENERO_CONTENIDO 
 --
 
 CREATE TABLE GENERO_CONTENIDO(
@@ -38,14 +49,18 @@ CREATE TABLE GENERO_CONTENIDO(
     NOMBRE_GENERO          VARCHAR2(20)     NOT NULL,
     DESCRIPCION            VARCHAR2(300)    NOT NULL,
     CONSTRAINT GENERO_CONTENIDO_PK PRIMARY KEY (GENERO_CONTENIDO_ID)
-    tablespace indexes_tbs
+    using index (
+      create unique index genero_contenido_pk 
+      on genero_contenido(genero_contenido_id)
+      tablespace indexes_tbs
+    )
 ) tablespace multimedia_tbs
 ;
 
 
 
 -- 
--- TABLE: MULTIMEDIA 
+Prompt TABLE: MULTIMEDIA 
 --
 
 CREATE TABLE MULTIMEDIA(
@@ -56,18 +71,21 @@ CREATE TABLE MULTIMEDIA(
     DURACION                NUMBER(6, 0)     NOT NULL,
     TIPO                    CHAR(1)          NOT NULL,
     GENERO_CONTENIDO_ID     NUMBER(10, 0)    NOT NULL,
-    CONSTRAINT MULTIMEDI_PK PRIMARY KEY (MULTIMEDIA_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT MULTIMEDIA_GENERO_CONTENIDO_ID_FK FOREIGN KEY (GENERO_CONTENIDO_ID)
+    CONSTRAINT MULTIMEDIA_PK PRIMARY KEY (MULTIMEDIA_ID)
+    using index (
+      create unique index multimedia_pk
+      on multimedia(multimedia_id)
+      tablespace indexes_tbs
+    ),
+    CONSTRAINT MULTIMEDIA_GENERO_CONTENIDO_ID_FK 
+    FOREIGN KEY (GENERO_CONTENIDO_ID)
     REFERENCES GENERO_CONTENIDO(GENERO_CONTENIDO_ID)
-    tablespace indexes_tbs
 ) tablespace multimedia_tbs
 ;
 
 
-
 -- 
--- TABLE: AUTOR_MULTIMEDIA 
+Prompt TABLE: AUTOR_MULTIMEDIA 
 --
 
 CREATE TABLE AUTOR_MULTIMEDIA(
@@ -76,20 +94,23 @@ CREATE TABLE AUTOR_MULTIMEDIA(
     MULTIMEDIA_ID               NUMBER(10, 0)    NOT NULL,
     AUTOR_ID                    NUMBER(10, 0)    NOT NULL,
     CONSTRAINT AUTOR_MULTIMEDIA_PK PRIMARY KEY (AUTOR_MULTIMEDIA_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index autor_multimedia_pk
+      on autor_multimedia(autor_multimedia_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT AUTOR_MULTIMEDIA_AUTOR_ID_FK FOREIGN KEY (AUTOR_ID)
-    REFERENCES AUTOR(AUTOR_ID)
-    tablespace indexes_tbs,
+    REFERENCES AUTOR(AUTOR_ID) ,
     CONSTRAINT AUTOR_MULTIMEDIA_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
     REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
-    tablespace indexes_tbs
 ) tablespace multimedia_tbs
 ;
 
 
+connect admin_usuario/admin_usuario
 
 -- 
--- TABLE: PLAN_SUSCRIPCION 
+Prompt TABLE: PLAN_SUSCRIPCION 
 --
 
 CREATE TABLE PLAN_SUSCRIPCION(
@@ -101,14 +122,18 @@ CREATE TABLE PLAN_SUSCRIPCION(
     VIGENCIA               DATE             NOT NULL,
     FECHA_FIN              DATE,
     CONSTRAINT PLAN_SUSCRIPCION_PK PRIMARY KEY (PLAN_SUSCRIPCION_ID)
-    tablespace indexes_tbs
+    using index (
+      create unique index plan_suscripcion_pk
+      on plan_suscripcion(plan_suscripcion_id)
+      tablespace indexes_tbs
+    )
 )
 ;
 
 
 
 -- 
--- TABLE: USUARIO 
+Prompt TABLE: USUARIO 
 --
 
 CREATE TABLE USUARIO(
@@ -122,17 +147,20 @@ CREATE TABLE USUARIO(
     RFC                    VARCHAR2(20),
     PLAN_SUSCRIPCION_ID    NUMBER(10, 0)    NOT NULL,
     CONSTRAINT USUARIO_PK PRIMARY KEY (USUARIO_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index usuario_pk
+      on usuario(usuario_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT USUARIO_PLAN_SUSCRIPTOR_ID_FK FOREIGN KEY (PLAN_SUSCRIPCION_ID)
     REFERENCES PLAN_SUSCRIPCION(PLAN_SUSCRIPCION_ID)
-    tablespace indexes_tbs
 )
 ;
 
 
 
 -- 
--- TABLE: TARJETA 
+Prompt TABLE: TARJETA 
 --
 
 CREATE TABLE TARJETA(
@@ -144,17 +172,20 @@ CREATE TABLE TARJETA(
     TIPO             CHAR(1)          NOT NULL,
     USUARIO_ID       NUMBER(10, 0)    NOT NULL,
     CONSTRAINT TARJETA_PK PRIMARY KEY (TARJETA_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index tarjeta_pk 
+      on tarjeta(tarjeta_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT TARJETA_USUARIO_ID_FK FOREIGN KEY (USUARIO_ID)
     REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs
 )
 ;
 
 
 
 -- 
--- TABLE: CARGO_TARJETA 
+Prompt TABLE: CARGO_TARJETA 
 --
 
 CREATE TABLE CARGO_TARJETA(
@@ -164,43 +195,21 @@ CREATE TABLE CARGO_TARJETA(
     IMPORTE             NUMBER(6, 2)     NOT NULL,
     TARJETA_ID          NUMBER(10, 0)    NOT NULL,
     CONSTRAINT CARGO_TARJETA_PK PRIMARY KEY (CARGO_TARJETA_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index cargo_tarjeta_pk 
+      on cargo_tarjeta(cargo_tarjeta_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT CARGO_TARJETA_TARJETA_ID_FK FOREIGN KEY (TARJETA_ID)
     REFERENCES TARJETA(TARJETA_ID)
-    tablespace indexes_tbs
 )
 ;
 
 
 
--- 
--- TABLE: COMENTARIO 
---
-
-CREATE TABLE COMENTARIO(
-    COMENTARIO_ID           NUMBER(10, 0)     NOT NULL,
-    COMENTARIO              VARCHAR2(2000)    NOT NULL,
-    USUARIO_ID              NUMBER(10, 0)     NOT NULL,
-    USUARIO_RESPUESTA_ID    NUMBER(10, 0),
-    MULTIMEDIA_ID           NUMBER(10, 0)     NOT NULL,
-    CONSTRAINT COMENTARIO_PK PRIMARY KEY (COMENTARIO_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT COMENTARIO_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
-    REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT COMENTARIO_USUARIO_ID_FK FOREIGN KEY (USUARIO_ID)
-    REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT COMENTARIO_USUARIO_RESPUESTA_ID_FK FOREIGN KEY (USUARIO_RESPUESTA_ID)
-    REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs
-) tablespace multimedia_tbs;
-;
-
-
 
 -- 
--- TABLE: DISPOSITIVO_USUARIO 
+Prompt TABLE: DISPOSITIVO_USUARIO 
 --
 
 CREATE TABLE DISPOSITIVO_USUARIO(
@@ -212,17 +221,20 @@ CREATE TABLE DISPOSITIVO_USUARIO(
     MARCA                     VARCHAR2(30)     NOT NULL,
     USUARIO_ID                NUMBER(10, 0)    NOT NULL,
     CONSTRAINT DISPOSITIVO_USUARIO_PK PRIMARY KEY (DISPOSITIVO_USUARIO_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index dispositivo_usuario_pk
+      on dispositivo_usuario(dispositivo_usuario_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT DISPOSITIVO_USUARIO_USUARIO_ID_FK FOREIGN KEY (USUARIO_ID)
-    REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs
+    REFERENCES USUARIO(USUARIO_ID) 
 )
 ;
 
 
 
 -- 
--- TABLE: HISTORICO_PLAN_SUSCRIPTOR 
+Prompt TABLE: HISTORICO_PLAN_SUSCRIPTOR 
 --
 
 CREATE TABLE HISTORICO_PLAN_SUSCRIPTOR(
@@ -232,17 +244,21 @@ CREATE TABLE HISTORICO_PLAN_SUSCRIPTOR(
     COSTO                          VARCHAR2(40)     NOT NULL,
     PLAN_SUSCRIPCION_ID            NUMBER(10, 0)    NOT NULL,
     CONSTRAINT HISTORICO_PLAN_SUSCRIPTOR_PK PRIMARY KEY (HISTORICO_PLAN_SUCRIPTOR_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index historico_plan_suscriptor_pk
+      on historico_plan_suscriptor(historico_plan_sucriptor_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT HIST_PLAN_SUSCRIP_PLAN_SUSCRIPTOR_IK_FK FOREIGN KEY (PLAN_SUSCRIPCION_ID)
     REFERENCES PLAN_SUSCRIPCION(PLAN_SUSCRIPCION_ID)
-    tablespace indexes_tbs
 )
 ;
 
 
+connect admin_multimedia/admin_multimedia
 
 -- 
--- TABLE: MUSICA 
+Prompt TABLE: MUSICA 
 --
 
 CREATE TABLE MUSICA(
@@ -251,17 +267,21 @@ CREATE TABLE MUSICA(
     FORMATO          VARCHAR2(20)      NOT NULL,
     NUM_KBPS         NUMBER(15, 0)     NOT NULL,
     CONSTRAINT MUSICA_PK PRIMARY KEY (MULTIMEDIA_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT RefMULTIMEDIA7 FOREIGN KEY (MULTIMEDIA_ID)
+    using index (
+      create unique index musica_pk
+      on musica(multimedia_id)
+      tablespace indexes_tbs
+    ),
+    CONSTRAINT MUSICA_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
     REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
-    tablespace indexes_tbs
 ) tablespace multimedia_tbs
 ;
 
 
+connect admin_usuario/admin_usuario
 
 -- 
--- TABLE: PLAYLIST 
+Prompt TABLE: PLAYLIST 
 --
 
 CREATE TABLE PLAYLIST(
@@ -269,38 +289,20 @@ CREATE TABLE PLAYLIST(
     NOMBRE         VARCHAR2(40)     NOT NULL,
     USUARIO_ID     NUMBER(10, 0)    NOT NULL,
     CONSTRAINT PLAYLIST_PK PRIMARY KEY (PLAYLIST_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index playlist_pk
+      on playlist(playlist_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT PLAYLIST_USUARIO_ID_FK FOREIGN KEY (USUARIO_ID)
     REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs
 )
 ;
 
 
 
 -- 
--- TABLE: PLAYLIST_CONTENIDO 
---
-
-CREATE TABLE PLAYLIST_CONTENIDO(
-    PLAYLIST_UDUARIO_ID    NUMBER(10, 0)    NOT NULL,
-    PLAYLIST_ID            NUMBER(10, 0)    NOT NULL,
-    MULTIMEDIA_ID          NUMBER(10, 0)    NOT NULL,
-    CONSTRAINT PLAYLIST_CONTENIDO_PK PRIMARY KEY (PLAYLIST_UDUARIO_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT PLAYLIST_CONTENIDO_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
-    REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT PLAYLIST_CONTENIDO_PLAYLIST_ID_FK FOREIGN KEY (PLAYLIST_ID)
-    REFERENCES PLAYLIST(PLAYLIST_ID)
-    tablespace indexes_tbs
-)
-;
-
-
-
--- 
--- TABLE: PLAYLIST_USUARIO_AUTORIZADO 
+Prompt TABLE: PLAYLIST_USUARIO_AUTORIZADO 
 --
 
 CREATE TABLE PLAYLIST_USUARIO_AUTORIZADO(
@@ -308,20 +310,23 @@ CREATE TABLE PLAYLIST_USUARIO_AUTORIZADO(
     USUARIO_ASOCIADO_ID               NUMBER(10, 0)    NOT NULL,
     PLAYLIST_ID                       NUMBER(10, 0)    NOT NULL,
     CONSTRAINT PLAYLIST_AUTORIZADO_PK PRIMARY KEY (PLAYLIST_USUARIO_AUTORIZADO_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index playlist_autorizado_pk
+      on playlist_usuario_autorizado(playlist_usuario_autorizado_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT PLALIST_USU_AUT_USUARIO_ASOCIADO_ID_FK FOREIGN KEY (USUARIO_ASOCIADO_ID)
-    REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs,
+    REFERENCES USUARIO(USUARIO_ID) ,
     CONSTRAINT PLAYLIST_USU_AUT_PLAYLIST_ID_FK FOREIGN KEY (PLAYLIST_ID)
     REFERENCES PLAYLIST(PLAYLIST_ID)
-    tablespace indexes_tbs
 )
 ;
 
 
+connect admin_multimedia/admin_multimedia
 
 -- 
--- TABLE: SECCIONES_MULTIMEDIA 
+Prompt TABLE: SECCIONES_MULTIMEDIA 
 --
 
 CREATE TABLE SECCIONES_MULTIMEDIA(
@@ -330,24 +335,126 @@ CREATE TABLE SECCIONES_MULTIMEDIA(
     MULTIMEDIA_ID            NUMBER(10, 0)    NOT NULL,
     CONTENIDO                BLOB             NOT NULL,
     CONSTRAINT SECCIONES_MULTIMEDIA_PK PRIMARY KEY (SECCION_MULTIMEDIA_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index secciones_multimedia_pk
+      on secciones_multimedia(seccion_multimedia_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT SECCIONES_MULTIMEDIA_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
     REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
-    tablespace indexes_tbs
-    -- Storing lob in different tablespace space
-    lob (contenido) store as basicfile segname(
-      tablespace contenido_blob_tbs chunk 4096 
-      pctversion 5 
-      nocache logging 
-      storage (maxextents 5)
-    )
-) tablespace multimedia_tbs
+    --,
+) 
+lob (contenido) store as basicfile segname(
+  tablespace contenido_blob_tbs chunk 4096 
+  pctversion 5 
+  nocache logging 
+  storage (maxextents 5)
+)
+tablespace multimedia_tbs
 ;
 
 
 
+connect admin_usuario/admin_usuario
+
 -- 
--- TABLE: STREAMING 
+Prompt TABLE: USUARIO_ASOCIADO 
+--
+
+CREATE TABLE USUARIO_ASOCIADO(
+    USUARIO_ASOCIADO_ID    NUMBER(10, 0)    NOT NULL,
+    USUARIO_ID             NUMBER(10, 0)    NOT NULL,
+    USUARIO_ANEXO_ID       NUMBER(10, 0)    NOT NULL,
+    CONSTRAINT USUARIO_ASOCIADO_PK PRIMARY KEY (USUARIO_ASOCIADO_ID)
+    using index (
+      create unique index usuario_asociado_pk
+      on usuario_asociado(usuario_asociado_id)
+      tablespace indexes_tbs
+    ),
+    CONSTRAINT USUARIO_ASOCIADO_USUARIO_ANEXO_ID_FK FOREIGN KEY (USUARIO_ANEXO_ID)
+    REFERENCES USUARIO(USUARIO_ID) ,
+    CONSTRAINT USUARIO_ASOCIADO_USUARIO_ID_FK FOREIGN KEY (USUARIO_ID)
+    REFERENCES USUARIO(USUARIO_ID)
+)
+;
+
+
+connect admin_multimedia/admin_multimedia
+
+-- 
+Prompt TABLE: VIDEO 
+--
+
+CREATE TABLE VIDEO(
+    MULTIMEDIA_ID            NUMBER(10, 0)    NOT NULL,
+    TIPO                     VARCHAR2(20)     NOT NULL,
+    CODIFICACION             VARCHAR2(10)     NOT NULL,
+    TIPO_TRANSPORTE          VARCHAR2(20)     NOT NULL,
+    PROTOCOLO_TRANSMISION    VARCHAR2(20)     NOT NULL,
+    CLASIFICACION            CHAR(1)          NOT NULL,
+    CONSTRAINT VIDEO_PK PRIMARY KEY (MULTIMEDIA_ID)
+    using index (
+      create unique index video_pk
+      on video(multimedia_id)
+      tablespace indexes_tbs
+    ),
+    CONSTRAINT VIDEO_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
+    REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
+) tablespace multimedia_tbs
+;
+
+@s-04-usuario-permisos-para-modulos.sql
+
+
+connect admin_usuario/admin_usuario
+
+-- 
+Prompt TABLE: PLAYLIST_CONTENIDO 
+--
+
+CREATE TABLE PLAYLIST_CONTENIDO(
+    PLAYLIST_CONTENIDO_ID  NUMBER(10, 0)    NOT NULL,
+    PLAYLIST_ID            NUMBER(10, 0)    NOT NULL,
+    MULTIMEDIA_ID          NUMBER(10, 0)    NOT NULL,
+    CONSTRAINT PLAYLIST_CONTENIDO_PK PRIMARY KEY (PLAYLIST_CONTENIDO_ID)
+    using index (
+      create unique index playlist_contenido_multimedia_id_fk
+      on playlist_contenido(playlist_contenido_id)
+      tablespace indexes_tbs
+    ),
+    CONSTRAINT PLAYLIST_CONTENIDO_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
+    REFERENCES admin_multimedia.MULTIMEDIA(MULTIMEDIA_ID),
+    CONSTRAINT PLAYLIST_CONTENIDO_PLAYLIST_ID_FK FOREIGN KEY (PLAYLIST_ID)
+    REFERENCES PLAYLIST(PLAYLIST_ID)
+)
+;
+
+
+connect admin_multimedia/admin_multimedia
+
+-- 
+Prompt TABLE: COMENTARIO 
+--
+
+CREATE TABLE COMENTARIO(
+    COMENTARIO_ID           NUMBER(10, 0)     NOT NULL,
+    COMENTARIO              VARCHAR2(2000)    NOT NULL,
+    USUARIO_ID              NUMBER(10, 0)     NOT NULL,
+    USUARIO_RESPUESTA_ID    NUMBER(10, 0),
+    MULTIMEDIA_ID           NUMBER(10, 0)     NOT NULL,
+    CONSTRAINT COMENTARIO_PK PRIMARY KEY (COMENTARIO_ID)
+    using index (
+      create unique index comentario_pk
+      on comentario(comentario_id)
+      tablespace indexes_tbs
+    )
+) tablespace multimedia_tbs
+;
+
+connect admin_usuario/admin_usuario
+
+-- 
+Prompt TABLE: STREAMING 
 --
 
 CREATE TABLE STREAMING(
@@ -366,60 +473,19 @@ CREATE TABLE STREAMING(
     USUARIO_ID                 NUMBER(10, 0)    NOT NULL,
     DISPOSITIVO_USUARIO_ID     NUMBER(10, 0)    NOT NULL,
     CONSTRAINT STREAMING_PK PRIMARY KEY (STREAMING_ID)
-    tablespace indexes_tbs,
+    using index (
+      create unique index streaming_pk
+      on streaming(streaming_id)
+      tablespace indexes_tbs
+    ),
     CONSTRAINT STREAMING_DISPOSITIVO_USUARIO_ID_FK FOREIGN KEY (DISPOSITIVO_USUARIO_ID)
-    REFERENCES DISPOSITIVO_USUARIO(DISPOSITIVO_USUARIO_ID)
-    tablespace indexes_tbs,
+    REFERENCES DISPOSITIVO_USUARIO(DISPOSITIVO_USUARIO_ID) ,
     CONSTRAINT STREAMING_MULTIMEDIA_ID_FK FOREIGN KEY (MULTIMEDIA_ID)
-    REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
-    tablespace indexes_tbs,
+    REFERENCES admin_multimedia.MULTIMEDIA(MULTIMEDIA_ID) ,
     CONSTRAINT STREAMING_USUARIO_ID_FK FOREIGN KEY (USUARIO_ID)
     REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs
 )
 ;
 
 
-
--- 
--- TABLE: USUARIO_ASOCIADO 
---
-
-CREATE TABLE USUARIO_ASOCIADO(
-    USUARIO_ASOCIADO_ID    NUMBER(10, 0)    NOT NULL,
-    USUARIO_ID             NUMBER(10, 0)    NOT NULL,
-    USUARIO_ANEXO_ID       NUMBER(10, 0)    NOT NULL,
-    CONSTRAINT USUARIO_ASOCIADO_PK PRIMARY KEY (USUARIO_ASOCIADO_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT USUARIO_ASOCIADO_USUARIO_ANEXO_ID_FK FOREIGN KEY (USUARIO_ANEXO_ID)
-    REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT USUARIO_ASOCIADO_USUARIO_ID_FK FOREIGN KEY (USUARIO_ID)
-    REFERENCES USUARIO(USUARIO_ID)
-    tablespace indexes_tbs,
-)
-;
-
-
-
--- 
--- TABLE: VIDEO 
---
-
-CREATE TABLE VIDEO(
-    MULTIMEDIA_ID            NUMBER(10, 0)    NOT NULL,
-    TIPO                     VARCHAR2(20)     NOT NULL,
-    CODIFICACION             VARCHAR2(10)     NOT NULL,
-    TIPO_TRANSPORTE          VARCHAR2(20)     NOT NULL,
-    PROTOCOLO_TRANSMISION    VARCHAR2(20)     NOT NULL,
-    CLASIFICACION            CHAR(1)          NOT NULL,
-    CONSTRAINT VIDEO_PK PRIMARY KEY (MULTIMEDIA_ID)
-    tablespace indexes_tbs,
-    CONSTRAINT RefMULTIMEDIA8 FOREIGN KEY (MULTIMEDIA_ID)
-    REFERENCES MULTIMEDIA(MULTIMEDIA_ID)
-    tablespace indexes_tbs
-) tablespace multimedia_tbs
-;
-
-
-
+whenever sqlerror continue
