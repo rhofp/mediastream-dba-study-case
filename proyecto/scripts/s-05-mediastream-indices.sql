@@ -2,11 +2,13 @@
 -- @Fecha creacion:   04/02/2021
 -- @Descripcion: Creacion de indices en el tablespace indexes_tbs
 
-connect admin_usuario/admin_usuario
+connect admin_multimedia/admin_multimedia
 
 -- Indices para AUTOR
 create unique index autor_email_uk on autor(email)
 tablespace indexes_tbs;
+
+connect admin_usuario/admin_usuario
 
 -- Indices para CARGO_TARJETA
 create unique index cargo_tarjeta_folio_uk on cargo_tarjeta(folio)

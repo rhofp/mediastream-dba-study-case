@@ -32,11 +32,16 @@ end;
 
 Prompt Creando al usuario admin_usuario
 create user admin_usuario identified by admin_usuario quota unlimited on users
-quota unlimited on indexes_tbs;
+quota unlimited on indexes_tbs 
+quota unlimited on contenido_blob_tbs
+;
 
 Prompt Creando al usuario admin_multimedia
 create user admin_multimedia identified by admin_multimedia 
-quota unlimited on multimedia_tbs quota unlimited on indexes_tbs;
+quota unlimited on multimedia_tbs 
+quota unlimited on indexes_tbs
+quota unlimited on contenido_blob_tbs
+;
 
 Prompt Otorgando privilegios basicos para admin_usuario
 grant create session, create table, create sequence, create procedure 

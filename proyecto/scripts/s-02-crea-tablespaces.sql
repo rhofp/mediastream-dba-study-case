@@ -16,6 +16,7 @@ create tablespace indexes_tbs
   size 500k
   reuse
   autoextend on next 500k maxsize 100m
+  logging
   online;
 
 create bigfile tablespace contenido_blob_tbs 
@@ -23,4 +24,5 @@ create bigfile tablespace contenido_blob_tbs
   size 10m
   reuse
   autoextend on next 1m maxsize 100G
+  logging
   online;

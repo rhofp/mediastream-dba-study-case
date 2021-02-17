@@ -18,7 +18,7 @@ read -p "Continuar? (y/n): "
 if [[ $REPLY = 'n' ]]; then exit; fi
 
 # Crear directorios
-mkdir -p ${BASEDIR}/{disk_1,disk_2}
+mkdir -p ${BASEDIR}/{disk_1,disk_2,disk_3,disk_4,disk_5,disk_6}
 
 # Cambiando dueno y gpo de carpetas
 chown -R oracle:oinstall ${BASEDIR}
