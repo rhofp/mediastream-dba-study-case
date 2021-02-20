@@ -1,1 +1,19 @@
-= Curso BDA
+= Bases de datos avanzadas
+
+:toc:
+
+== Modelo relacional global
+
+image:./media-stream-modelo-global.jpg[]
+
+== Modelo relacional para el módulo 1
+
+image:./media-stream-modulo-01.jpg[]
+
+== Modelo relacional para el módulo 2
+
+image:./media-stream-modulo-02.jpg[]
+
+== Arquitectura para el diseño físico
+
+image:./arquitectura-bd-mediastream.png[]
